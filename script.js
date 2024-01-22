@@ -32,7 +32,7 @@ function createHotel(){
         "country": document.getElementById("country").value,
         "name": document.getElementById("name").value
     }
-    fetch("http://127.0.0.1:8080/hotel", {
+    fetch("http://127.0.0.1:8080/createhotel", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
