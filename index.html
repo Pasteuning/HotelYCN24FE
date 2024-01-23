@@ -12,11 +12,10 @@
     <h2>Hotels</h2>
     <button onclick="getAllHotels()" id="viewhotels">Get all hotels</button>
     <table id="hotels"></table>
-
     <div id="editHotel" ></div>
 
-    <h2>Create hotel</h2>
     <div id="createHotel">
+    <h2>Create hotel</h2>
         <input type="text" placeholder="Name" id="name"><br>
         <input type="text" placeholder="Street" id="street"><br>
         <input type="text" placeholder="House Number" id="houseNumber"><br>
@@ -26,5 +25,38 @@
         <button onclick="createHotel()">Create hotel</button>
         <div id="hotelcreated"></div>
     </div>  
+
+    <h2>Hotels</h2>
+    <button onclick="getAllUsers()" id="viewusers">Get all users</button>
+    <table id="users"></table>
+    <div id="editUser" ></div>
+
+    <div>
+        <h2>Create User</h2>
+        <form>
+            <label>First name:</label>
+            <input type="text" id="userFirstName"><br>
+            <label>Last name:</label>
+            <input type="text" id="userLastName"><br>
+            <label>Date of birth:</label>
+            <input type="text" id="userDateOfBirth"><br>
+            <label>Street:</label>
+            <input type="text" id="userStreet"><br>
+            <label>House number:</label>
+            <input type="text" id="userHouseNumber"><br>
+            <label>Zip code:</label>
+            <input type="text" id="userZipCode"><br>
+            <label>City:</label>
+            <input type="text" id="userCity"><br>
+            <label>Country:</label>
+            <input type="text" id="userCountry"><br>
+            <label>Email:</label>
+            <input type="text" id="userEmail"><br>
+            <label>Phone number:</label>
+            <input type="text" id="userPhoneNumber"><br>
+            <button onclick="createUser()">Create user</button>
+            <div id="usercreated"></div>
+        </form>
+    </div>
 </body>
 </html>
