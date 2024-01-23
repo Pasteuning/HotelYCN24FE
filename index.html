@@ -8,14 +8,14 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>De front end.</h1>
+    <h1>De front end</h1>
     <h2>Hotels</h2>
-    <button onclick="getAllHotels()" id="viewhotels">Get all hotels</button>
-    <table id="hotels"></table>
+    <!--button onclick="getAllHotels()" id="viewhotels">Get all hotels</button-->
+    <button onclick="newHotel()">Create hotel</button>
+    <div id="allhotels"></div>  
+    <div id="editorplaceholder" ></div>
+    <!--h2>Create hotel</h2>
 
-    <div id="editHotel" ></div>
-
-    <h2>Create hotel</h2>
     <div id="createHotel">
         <input type="text" placeholder="Name" id="name"><br>
         <input type="text" placeholder="Street" id="street"><br>
@@ -23,8 +23,8 @@
         <input type="text" placeholder="Zip Code" id="zipCode"><br>
         <input type="text" placeholder="City" id="city"><br>
         <input type="text" placeholder="Country" id="country"><br>
-        <button onclick="createHotel()">Create hotel</button>
+        <button onclick="callToCreateHotel()">Create hotel</button>
         <div id="hotelcreated"></div>
-    </div>  
+    </div-->  
 </body>
 </html>
