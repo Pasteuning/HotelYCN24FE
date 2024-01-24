@@ -96,6 +96,6 @@ function createHotel(){
 
 function deleteHotel(hotelId) {
     console.log(hotelId)
-    fetch("http://localhost:8080/deletehotel/" + id);
+    fetch("http://localhost:8080/deletehotel/" + hotelId);
     location.reload();
 }
