@@ -58,5 +58,21 @@
             <div id="usercreated"></div>
         </form>
     </div>
+
+    <h2>Rooms</h2>
+    <button onclick="getAllRooms()" id="viewrooms">Get all Rooms</button>
+    <table id="rooms"></table>
+
+    <div id="editRoom"></div>
+
+    <h2>Create Room</h2>
+    <div id="createdRoom">
+        <input type="text" placeholder="Room Type" id="room_type"> <br>
+        <input type="number" placeholder="Number of Beds" id="no_beds"><br>
+        <input type="number" placeholder="Price" id="price"><br>
+        <button onclick="createRoom()">Create room</button>
+        <div id="roomCreated"></div>
+    </div>
+
 </body>
 </html>

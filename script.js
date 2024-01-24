@@ -147,68 +147,95 @@ function createUser(){
     },
     body: JSON.stringify(hotel),
     })
-    document.getElementById("usercreated").innerHTML = "User succesfully created";
+    document.getElementById("hotelcreated").innerHTML = "Hotel succesfully created";
+    location.reload();
 }
 
-function editUser(userId) {
-    fetch("http://localhost:8080/user/" + userId)
+function deleteHotel(hotelId) {
+    console.log(hotelId)
+    fetch("http://localhost:8080/deletehotel/" + id);
+    location.reload();
+}
+
+
+function getAllRooms(){
+    fetch("http://127.0.0.1:8080/allrooms")
     .then(res => res.json())
-    .then(user => {
-        let form = `
-        <h2>Edit user</h2>
-        <form>
-            <label>First name:</label>
-            <input type="text" id="editUserFirstName" value=${user.firstName}><br>
-            <label>Last name:</label>
-            <input type="text" id="editUserLastName" value=${user.lastName}><br>
-            <label>Date of Birth:</label>
-            <input type="text" id="editUserDateOfBirth" value=${user.dateOfBirth}><br>
-            <label>Street:</label>
-            <input type="text" id="editUserStreet" value=${user.street}><br>
-            <label>House number:</label>
-            <input type="text" id="editUserHouseNumber" value=${user.houseNumber}><br>
-            <label>Zip code:</label>
-            <input type="text" id="editUserZipCode" value=${user.zipCode}><br>
-            <label>City:</label>
-            <input type="text" id="editUserCity" value=${user.city}><br>
-            <label>Country:</label>
-            <input type="text" id="editUserCountry" value=${user.country}><br>
-            <label>Email:</label>
-            <input type="text" id="editUserEmail" value=${user.email}><br>
-            <label>Phone number:</label>
-            <input type="text" id="editUserPhoneNumber" value=${user.phoneNumber}><br>
-            <button onclick="submitUserForm(${userId})">Submit</button>
-        </form>
-        `
-    document.getElementById("editUser").innerHTML = form;
+    .then (rooms => {
+        let roomhtml = ""
+        for (let x=0; x<rooms.length; x++){
+            roomhtml+=`
+            <tr>
+                <td>${rooms[x].id}</td>
+                <td>${rooms[x].room_type}</td>
+                <td>${rooms[x].noBeds}</td>
+                <td>${rooms[x].price}</td>
+                <td><button onclick="editRoom(${rooms[x].id})">Edit room</button></td>
+                <td><button onclick="deleteRoom(${rooms[x].id})">Delete room</button></td>
+             </tr>
+            `
+        }
+        document.getElementById("rooms").innerHTML = roomhtml;
     })
 }
 
-function submitUserForm(userId) {
-    let edditedUser =  {
-        "firstName": document.getElementById("editUserFirstName").value,
-        "lastName": document.getElementById("editUserLastName").value,
-        "dateOfBirth": document.getElementById("editUserDateOfBirth").value,
-        "street": document.getElementById("editUserStreet").value,
-        "houseNumber": document.getElementById("editUserHouseNumber").value,
-        "zipCode": document.getElementById("editUserZipCode").value,
-        "city": document.getElementById("editUserCity").value,
-        "country": document.getElementById("editUserCountry").value,
-        "email": document.getElementById("editUserEmail").value,
-        "phoneNumber": document.getElementById("editUserPhoneNumber").value
+function editRoom(roomId){
+    fetch("http://127.0.0.1:8080/room/" + roomId)
+    .then(res => res.json())
+    .then (room => {
+        let form = `
+        <h2> Edit room</h2>
+        <form>
+            <label>Room Type:</label>
+            <input type="text" id="editRoomType" value=${room.roomType}>
+            <label>Number of Beds:</label>
+            <input type="text" id="editNoBeds" value=${room.noBeds}>
+            <label>Price:</label>
+            <input type="number" id="editPrice" value=${room.price}>
+            <button onclick="submitForm(${roomId})">Submit</button>
+        </form>
+        `
+        document.getElementById("editRoom").innerHTML = form;
+        
+    })
+}
+function submitFormRoom(roomId){
+    let editedRoom = {
+        "roomType": document.getElementById("editRoomType").value,
+        "noBeds": document.getElementById("editNoBeds").value,
+        "price": document.getElementById("editPrice").value,
     }
-
-    fetch("http://127.0.0.1:8080/edituser/" + userId, {
+    fetch("http://127.0.0.1:8080/editroom/" + roomId, {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(edditedUser),
+        body: JSON.stringify(editedRoom),
     })
 }
 
-function deleteUser(userId) {
-    console.log(userId)
-    fetch("http://localhost:8080/deleteuser/" + userId);
-    location.reload();
+function createRoom(){
+    let room = {
+        "roomType": document.getElementById("room_type").value,
+        "noBeds": document.getElementById("no_beds").value,
+        "price": document.getElementById("price").value
+    }
+    fetch("http://127.0.0.1:8080/createroom", {
+        method: "POST", // or 'PUT'
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(room),
+        })
+        document.getElementById("roomCreated").innerHTML = "Room succesfully created";
+
 }
+
+
+function deleteRoom(roomId) {
+    console.log(roomId)
+    fetch("http://localhost:8080/deleteroom/" + roomId);
+
+}
+
+
