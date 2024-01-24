@@ -66,6 +66,7 @@ function editHotel(hotelId) {
             <label>Country:</label>
             <input type="text" id="editCountry" value=${hotel.country}><br>
             <button onclick="submitHotelForm(${hotelId})">Submit</button>
+            <button onclick="getAllRooms(${hotelId})">View rooms </button>
         </form>
         `
     document.getElementById("editHotel").innerHTML = form;
@@ -210,5 +211,27 @@ function submitUserForm(userId) {
 function deleteUser(userId) {
     console.log(userId)
     fetch("http://localhost:8080/deleteuser/" + userId);
+    location.reload();
+}
+
+
+function getAllRooms() {
+
+}
+
+function createRoom() {
+    let room =  {
+        "roomType": document.getElementById("roomType").value,
+        "noBeds": document.getElementById("noBeds").value,
+        "price": document.getElementById("price").value   
+    }
+    fetch("http://127.0.0.1:8080/createroom", {
+    method: "POST", // or 'PUT'
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(room),
+    })
+    document.getElementById("roomcreated").innerHTML = "room succesfully created";
     location.reload();
 }

@@ -12,21 +12,44 @@
     <h2>Hotels</h2>
     <button onclick="getAllHotels()" id="viewhotels">Get all hotels</button>
     <table id="hotels"></table>
-    <div id="editHotel" ></div>
+    <div id="editHotel"></div>
 
     <div id="createHotel">
     <h2>Create hotel</h2>
-        <input type="text" placeholder="Name" id="name"><br>
-        <input type="text" placeholder="Street" id="street"><br>
-        <input type="text" placeholder="House Number" id="houseNumber"><br>
-        <input type="text" placeholder="Zip Code" id="zipCode"><br>
-        <input type="text" placeholder="City" id="city"><br>
-        <input type="text" placeholder="Country" id="country"><br>
+        <label>Hotel name:</label>
+        <input type="text" id="name"><br>
+        <label>Street:</label>
+        <input type="text" id="street"><br>
+        <label>House number:</label>
+        <input type="text" id="houseNumber"><br>
+        <label>Zip code:</label>
+        <input type="text" id="zipCode"><br>
+        <label>City:</label>
+        <input type="text" id="city"><br>
+        <label>Country:</label>
+        <input type="text" id="country"><br>
         <button onclick="createHotel()">Create hotel</button>
         <div id="hotelcreated"></div>
     </div>  
 
-    <h2>Hotels</h2>
+    <h2>Create room</h2>
+    <form>
+        <label>Room type:</label>
+        <select id="roomType">
+            <option value="0">Single</option>
+            <option value="1">Double</option>
+            <option value="2">Family</option>
+        </select><br>
+        <label>Number of beds:</label>
+        <input type="text" id="roomNoBeds"><br>
+        <label>Price:</label>
+        <input type="text" id="roomPrice"><br>
+        <button onclick="createRoom()">Create room</button>
+        <div id="roomcreated"></div>
+    </form>
+
+
+    <!-- <h2>Users</h2>
     <button onclick="getAllUsers()" id="viewusers">Get all users</button>
     <table id="users"></table>
     <div id="editUser" ></div>
@@ -57,6 +80,6 @@
             <button onclick="createUser()">Create user</button>
             <div id="usercreated"></div>
         </form>
-    </div>
+    </div> -->
 </body>
 </html>
