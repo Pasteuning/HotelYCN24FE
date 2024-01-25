@@ -7,3 +7,8 @@ label {
     width: 120px; 
     text-align: left; 
 }
+
+#rooms{
+    border: 1px solid black
+}
+
