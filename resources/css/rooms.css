@@ -1,4 +1,4 @@
-#hotels{
+table {
     border: 1px solid black
 }
 
@@ -8,7 +8,12 @@ label {
     text-align: left; 
 }
 
-#rooms{
-    border: 1px solid black
+.properties {
+    display: inline-block;
+}
+
+.room {
+    border: 1px solid black;
+    width: 250px;
 }
 
