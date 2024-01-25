@@ -14,10 +14,10 @@ function getAllHotels() {
         .then((hotels) => {
             let hotelhtml = "<table id='hotels' border='0' cellspacing='0'>";
             hotelhtml += "<TR>";
-            hotelhtml += "<th>" + "id" + "</th>";
+            hotelhtml += "<th>" + "&nbsp;" + "</th>";
+            hotelhtml += "<th>" + "Naam" + "</th>";
             hotelhtml += "<th>" + "Straat" + "</th>";
             hotelhtml += "<th>" + "Nr" + "</th>";
-            hotelhtml += "<th>" + "Naam" + "</th>";
             hotelhtml += "<th>" + "Postcode" + "</th>";
             hotelhtml += "<th>" + "Plaats" + "</th>";
             hotelhtml += "<th>" + "Land" + "</th>";
@@ -29,9 +29,9 @@ function getAllHotels() {
                 hotelhtml += `
             <tr>
                 <td class="identifier">${hotels[i].id}</td>
+                <td>${hotels[i].name}</td>
                 <td>${hotels[i].street}</td>
                 <td>${hotels[i].houseNumber}</td>
-                <td>${hotels[i].name}</td>
                 <td>${hotels[i].zipCode}</td>
                 <td>${hotels[i].city}</td>
                 <td>${hotels[i].country}</td>
@@ -60,32 +60,32 @@ function getEditor(hotel) {
             country: "",
         };
     }
-    let caption = editORcreate == "create" ? "Nieuw Hotel" : "Bewerk "+hotel.name;
+    let caption = editORcreate == "create" ? "Nieuw Hotel" : hotel.name;
     let editorHTML = `
     <dialog id="editor" open>
         <h2>`+caption+`</h2>
         <hr/>`;
 
-    if (editORcreate == "edit"){
+    if (false && editORcreate == "edit"){
         editorHTML += `<label>ID</label>
         <input type="text" id="identifier" readonly value=${hotel.id}><br>`
     }
 
-    editorHTML += `<label>Name</label>
-        <input type="text" id="name" value=${hotel.name}><br>
+    editorHTML += `
+        <label>Name</label>
+        <input type="text" id="name" value="${hotel.name}"><br>
         <label>Street</label>
-        <input type="text" id="street" value=${hotel.street}><br>
+        <input type="text" id="street" value="${hotel.street}"><br>
         <label>House number</label>
-        <input type="text" id="houseNumber" value=${hotel.houseNumber}><br>
+        <input type="text" id="houseNumber" value="${hotel.houseNumber}"><br>
         <label>Zip code</label>
-        <input type="text" id="zipCode" value=${hotel.zipCode}><br>
+        <input type="text" id="zipCode" value="${hotel.zipCode}"><br>
         <label>City</label>
-        <input type="text" id="city" value=${hotel.city}><br>
+        <input type="text" id="city" value="${hotel.city}"><br>
         <label>Country</label>
-        <input type="text" id="country" value=${hotel.country}>
+        <input type="text" id="country" value="${hotel.country}">
         <hr>
-        <button onclick="cancelEditHotel(${hotel.id})">Cancel</button>
-    `;
+        <button onclick="cancelEditHotel(${hotel.id})">Cancel</button>`;
     switch (editORcreate) {
         case "create":
             editorHTML += `<button onclick="createHotel()">Opslaan (create)</button>`;
@@ -157,11 +157,14 @@ async function createHotel() {
         body: JSON.stringify(hotel),
     }).then(
         // location.reload();
-        // dit is een probleem omdat de kans bestaat dat
+        // location.reload() = een probleem omdat de kans bestaat dat
         // dat de reload gebeurt voordat de fetch afgerond is.
         // Bijgevolg wordt het gecreeerde hotel niet opgeslagen...
+
+        // wacht daarom op de response voordat jet getAllHotels refreshed
         (response) => {
             getAllHotels();
+            document.getElementById("editor").close();
         }
     );
     //document.getElementById("hotelcreated").innerHTML = "Hotel succesfully created";
