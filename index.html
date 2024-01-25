@@ -3,83 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotelFrontPage</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <title>Hotel</title>
+    <link rel="stylesheet" href="./resources/css/index.css">
+    <script src="./resources/js/index.js"></script>
 </head>
 <body>
-    <h1>De front end.</h1>
-    <h2>Hotels</h2>
-    <button onclick="getAllHotels()" id="viewhotels">Get all hotels</button>
-    <table id="hotels"></table>
-    <div id="editHotel"></div>
+    <a href="index.html"><button>Home</button></a>
+    <a href="hotels.html"><button>Hotels</button></a>
+    <a href="rooms.html"><button>Rooms</button></a>
+    <!-- <a href=""><button>Faciliteiten</button></a> -->
+    <a href="users.html"><button>Users</button></a>
+    
+    <h1>Home page</h1>
 
-    <div id="createHotel">
-    <h2>Create hotel</h2>
-        <label>Hotel name:</label>
-        <input type="text" id="name"><br>
-        <label>Street:</label>
-        <input type="text" id="street"><br>
-        <label>House number:</label>
-        <input type="text" id="houseNumber"><br>
-        <label>Zip code:</label>
-        <input type="text" id="zipCode"><br>
-        <label>City:</label>
-        <input type="text" id="city"><br>
-        <label>Country:</label>
-        <input type="text" id="country"><br>
-        <button onclick="createHotel()">Create hotel</button>
-        <div id="hotelcreated"></div>
-    </div>  
-
-    <h2>Create room</h2>
-    <form>
-        <label>Room type:</label>
-        <select id="roomType">
-            <option value="0">Single</option>
-            <option value="1">Double</option>
-            <option value="2">Family</option>
-        </select><br>
-        <label>Number of beds:</label>
-        <input type="text" id="roomNoBeds"><br>
-        <label>Price:</label>
-        <input type="text" id="roomPrice"><br>
-        <button onclick="createRoom()">Create room</button>
-        <div id="roomcreated"></div>
-    </form>
+    
 
 
-    <!-- <h2>Users</h2>
-    <button onclick="getAllUsers()" id="viewusers">Get all users</button>
-    <table id="users"></table>
-    <div id="editUser" ></div>
-
-    <div>
-        <h2>Create User</h2>
-        <form>
-            <label>First name:</label>
-            <input type="text" id="userFirstName"><br>
-            <label>Last name:</label>
-            <input type="text" id="userLastName"><br>
-            <label>Date of birth:</label>
-            <input type="text" id="userDateOfBirth"><br>
-            <label>Street:</label>
-            <input type="text" id="userStreet"><br>
-            <label>House number:</label>
-            <input type="text" id="userHouseNumber"><br>
-            <label>Zip code:</label>
-            <input type="text" id="userZipCode"><br>
-            <label>City:</label>
-            <input type="text" id="userCity"><br>
-            <label>Country:</label>
-            <input type="text" id="userCountry"><br>
-            <label>Email:</label>
-            <input type="text" id="userEmail"><br>
-            <label>Phone number:</label>
-            <input type="text" id="userPhoneNumber"><br>
-            <button onclick="createUser()">Create user</button>
-            <div id="usercreated"></div>
-        </form>
-    </div> -->
 </body>
 </html>
