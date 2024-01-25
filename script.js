@@ -43,7 +43,7 @@ function createHotel(){
     body: JSON.stringify(hotel),
     })
     document.getElementById("hotelcreated").innerHTML = "Hotel succesfully created";
-    location.reload();
+
 }
 
 function editHotel(hotelId) {
@@ -153,7 +153,7 @@ function createUser(){
 
 function deleteHotel(hotelId) {
     console.log(hotelId)
-    fetch("http://localhost:8080/deletehotel/" + id);
+    fetch("http://localhost:8080/deletehotel/" + d);
     location.reload();
 }
 
@@ -167,7 +167,7 @@ function getAllRooms(){
             roomhtml+=`
             <tr>
                 <td>${rooms[x].id}</td>
-                <td>${rooms[x].room_type}</td>
+                <td>${rooms[x].roomType}</td>
                 <td>${rooms[x].noBeds}</td>
                 <td>${rooms[x].price}</td>
                 <td><button onclick="editRoom(${rooms[x].id})">Edit room</button></td>
@@ -192,7 +192,7 @@ function editRoom(roomId){
             <input type="text" id="editNoBeds" value=${room.noBeds}>
             <label>Price:</label>
             <input type="number" id="editPrice" value=${room.price}>
-            <button onclick="submitForm(${roomId})">Submit</button>
+            <button onclick="submitFormRoom(${roomId})">Submit</button>
         </form>
         `
         document.getElementById("editRoom").innerHTML = form;
@@ -233,8 +233,9 @@ function createRoom(){
 
 
 function deleteRoom(roomId) {
-    console.log(roomId)
-    fetch("http://localhost:8080/deleteroom/" + roomId);
+    console.log(roomId);
+    fetch("http://127.0.0.1:8080/deleteroom/" + roomId);
+    location.reload();
 
 }
 
