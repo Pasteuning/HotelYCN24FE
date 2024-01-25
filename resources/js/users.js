@@ -85,7 +85,7 @@ function editUser(userId) {
     })
 }
 
-function submitForm(userId) {
+async function submitForm(userId) {
     let edditedUser =  {
         "firstName": document.getElementById("editFirstName").value,
         "lastName": document.getElementById("editLastName").value,
@@ -109,7 +109,7 @@ function submitForm(userId) {
     alert("Changes saved successfully")
 }
 
-function deleteUser(userId) {
+async function deleteUser(userId) {
     console.log(userId)
     fetch("http://localhost:8080/deleteuser/" + userId);
     location.reload();
