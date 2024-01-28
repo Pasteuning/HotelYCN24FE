@@ -1,0 +1,19 @@
+table {
+    border: 1px solid black
+}
+
+label {
+    display: inline-block;
+    width: 120px; 
+    text-align: left; 
+}
+
+.properties {
+    display: inline-block;
+}
+
+.room {
+    border: 1px solid black;
+    width: 250px;
+}
+

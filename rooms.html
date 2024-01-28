@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="./resources/css/rooms.css">
+    <script src="./resources/js/rooms.js"></script>
+</head>
+<body>
+    <a href="index.html"><button>Home</button></a>
+    <a href="hotels.html"><button>Hotels</button></a>
+    <a href="rooms.html"><button>Rooms</button></a>
+    <!-- <a href=""><button>Faciliteiten</button></a> -->
+    <a href="users.html"><button>Users</button></a>
+
+    <h1>Rooms</h1>
+
+    <label>Select hotel:</label>
+    <select id="hotelDropdown" onchange="displayRooms()"></select>
+
+    <div id="rooms"></div>
+
+    <h2>Create room</h2>
+    <form>
+        <label>Room type:</label>
+        <select id="roomTypeDropdown">
+            <option value="0">Single</option>
+            <option value="1">Double</option>
+            <option value="2">Family</option>
+        </select><br>
+        <label>Number of beds:</label>
+        <input type="text" id="noBeds"><br>
+        <label>Price:</label>
+        <input type="text" id="price"><br>
+        <button onclick="createRoom()">Create room</button>
+    </form>
+</body>
+</html>
