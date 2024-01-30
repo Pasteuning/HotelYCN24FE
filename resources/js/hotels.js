@@ -1,4 +1,4 @@
-getAllHotels()
+getAllHotels();
 
 
 function getAllHotels(){
@@ -42,7 +42,7 @@ async function createHotel(){
     body: JSON.stringify(hotel),
     })
     alert("Hotel successfully created")
-    location.reload();
+    getAllHotels();
 }
 
 function editHotel(hotelId) {
@@ -92,7 +92,7 @@ function submitHotelForm(hotelId) {
 }
 
 async function deleteHotel(hotelId) {
-    console.log(hotelId)
     fetch("http://localhost:8080/deletehotel/" + hotelId);
-    location.reload();
+    alert("Hotel successfully deleted");
+    getAllHotels();
 }

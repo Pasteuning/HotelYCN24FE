@@ -1,3 +1,4 @@
+//hotel dropdown direct vullen met hotels
 getAllHotels().then(hotels => {
     populateHotelsDropdown(hotels);
 })
@@ -5,6 +6,11 @@ getAllHotels().then(hotels => {
 function getAllHotels(){
     return fetch("http://127.0.0.1:8080/allhotels")
     .then(hotels => hotels.json());
+}
+
+function getHotel(hotelId) {
+    return fetch("http://127.0.0.1:8080/hotel/" + hotelId)
+    .then(res => res.json())
 }
 
 function getRooms(hotelId){
@@ -25,6 +31,8 @@ function populateHotelsDropdown(hotels) {
 }
 
 function displayRooms() {
+    //methode om alle kamers uit de hotel dropdown te laten zien.
+    //methode werkt op onchange, dus wordt aangeroepen als de hotel dropdown waarde verandert.
     const hotelId = document.getElementById("hotelDropdown").value;
 
     fetch("http://127.0.0.1:8080/hotel/" + hotelId + "/rooms")
@@ -57,36 +65,31 @@ function displayRooms() {
     })
 }
 
-function getHotel(hotelId) {
-    return fetch("http://127.0.0.1:8080/hotel/" + hotelId)
-    .then(res => res.json())
-}
 
 async function createRoom() {
     let hotelId = document.getElementById("hotelDropdown").value;
-    getHotel(hotelId)
-    .then(hotel => {
+
     let room = {
-            "roomType": document.getElementById("roomTypeDropdown").value,
-            "noBeds": document.getElementById("noBeds").value,
-            "price": document.getElementById("price").value,
-            "hotel": {
-                "id": hotel.id, 
-                "name": hotel.name,
-                "street": hotel.street,
-                "houseNumber": hotel.houseNumber,
-                "zipCode": hotel.zipCode,
-                "city": hotel.city,
-                "country": hotel.country,
-            } 
-        }
-        fetch("http://127.0.0.1:8080/createroom", {
+        //id: generated
+        "roomType": document.getElementById("roomTypeDropdown").value,
+        "noBeds": document.getElementById("noBeds").value,
+        "price": document.getElementById("price").value
+    }
+    
+    fetch("http://127.0.0.1:8080/createroom?hotelId=" + hotelId, {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(room),
-        })
-        alert("Room successfully created")
     })
+    .then(alert("De error handling van deze functie werkt alleen met deze alert ertussen. Fix dit nog!!"))
+    .then(res => res.json())
+    .then(createdRoom => {
+        if (createdRoom !== null) {
+            alert("Room successfully created");  
+        } else {
+            alert("Room creation failed");
+        }  
+    });
 }
