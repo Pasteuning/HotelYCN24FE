@@ -12,6 +12,7 @@ function getAllHotels() {
     fetch("http://127.0.0.1:8080/allhotels")
         .then((res) => res.json())
         .then((hotels) => {
+            console.log(hotels)
             let hotelhtml = "<table id='hotels' border='0' cellspacing='0'>";
             hotelhtml += "<TR>";
             hotelhtml += "<th>" + "&nbsp;" + "</th>";
@@ -21,11 +22,23 @@ function getAllHotels() {
             hotelhtml += "<th>" + "Postcode" + "</th>";
             hotelhtml += "<th>" + "Plaats" + "</th>";
             hotelhtml += "<th>" + "Land" + "</th>";
+            hotelhtml += "<th>" + "ROOMS" + "</th>";
             hotelhtml += "<th>" + "&nbsp;" + "</th>";
             hotelhtml += "<th>" + "&nbsp;" + "</th>";
             hotelhtml += "</TR>";
 
             for (let i = 0; i < hotels.length; i++) {
+                let allroomsofthishotel="";
+                for (let k = 0 ; k < hotels[i].rooms.length;k++){
+                    hotelroom = "<div class='roomofhotel'>"
+                    for (let key in hotels[i].rooms[k]){
+                        hotelroom += key +" = " +hotels[i].rooms[k][key]+"<br/>"
+                    }
+                    hotelroom+="</div>"
+                    allroomsofthishotel+=hotelroom;
+                }
+
+
                 hotelhtml += `
             <tr>
                 <td class="identifier">${hotels[i].id}</td>
@@ -35,11 +48,14 @@ function getAllHotels() {
                 <td>${hotels[i].zipCode}</td>
                 <td>${hotels[i].city}</td>
                 <td>${hotels[i].country}</td>
+                <td>`+allroomsofthishotel+`</td>
                 <td><button onclick="editHotel(${hotels[i].id})">Edit</button></td>
                 <td><button class="deletebutton" onclick="deleteHotel(${hotels[i].id}, '${hotels[i].name}')">Delete</button></td>
              </tr>
             `;
+            console.log("-----------\n", hotels[i].rooms)
             }
+
             hotelhtml += "</table>";
             document.getElementById("allhotels").innerHTML = hotelhtml;
         });
