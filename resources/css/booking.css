@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+}
+
+.searchRoom {
+    margin: 5px;
+}
+
+#adults {
+    width: 40px;
+}
+
+#children {
+    width: 40px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-button {
+    align-items: center;
+}
