@@ -1,9 +1,17 @@
 .container {
+    border: 1px solid black;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.searchRoom {
+h2 {
+    text-align: center;
+}
+
+.searchInput {
     margin: 5px;
+    align-items: center;
 }
 
 #adults {
@@ -23,3 +31,36 @@
 #search-button {
     align-items: center;
 }
+
+.room {
+    border: 1px solid black;
+    width: 80%;
+    margin: 50px;
+    padding: 50px;
+    display: inline-flex;
+}
+
+.facilities {
+    width: 50%;
+}
+
+.book {
+    display: flex;
+    justify-content: center;
+}
+
+#book-btn {
+    margin: 50px;
+}
+
+#price {
+    margin: 50px;
+}
+
+.images {
+    width: 50%;
+    height: 300px;
+    background-color: rgb(244, 219, 219);
+    margin: 20px;
+}
+

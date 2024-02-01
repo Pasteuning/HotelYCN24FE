@@ -2,15 +2,16 @@
     color: #555;
 }
 
-
+#rooms,
 #hotels {
     border-radius: 4px;
 }
-
+#rooms tr:hover td,
 #hotels tr:hover td {
     background-color: lightyellow;
 }
 
+#rooms td.identifier,
 #hotels td.identifier {
     color: silver;
 }
@@ -19,7 +20,8 @@ td,
 th {
     font-size: 10pt;
 }
-
+#rooms td,
+#rooms th
 #hotels td,
 #hotels th {
     border-bottom: 1px solid silver;
@@ -27,6 +29,7 @@ th {
     text-align: left
 }
 
+#rooms tr:nth-child(2n) ,
 #hotels tr:nth-child(2n) {
     background-color: #FAFAFA;
     text-align: left;
@@ -82,4 +85,9 @@ button.deletebutton {
 
 button:hover {
     text-decoration: underline;
+}
+.roomofhotel {
+    border:1px solid gray;
+    margin:2px;
+    padding:2px;
 }

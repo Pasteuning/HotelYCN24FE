@@ -1,4 +1,6 @@
-getAllUsers()
+document.addEventListener('DOMContentLoaded', function () {
+    getAllUsers();
+});
 
 function getAllUsers(){
     fetch("http://127.0.0.1:8080/allusers")
@@ -20,7 +22,7 @@ function getAllUsers(){
                 <td>${users[i].email}</td>
                 <td>${users[i].phoneNumber}</td>
                 <td><button onclick="editUser(${users[i].id})">Edit user</button></td>
-                <td><button onclick="deleteUser(${users[i].id})">Delete user</button></td>
+                <td><button onclick="deleteUser('${users[i].id}', '${users[i].firstName}', '${users[i].lastName}')">Delete user</button></td>
              </tr>
             `
         }
@@ -29,7 +31,7 @@ function getAllUsers(){
 }
 
 async function createUser(){
-    let hotel =  {
+    let user =  {
         "firstName": document.getElementById("firstName").value,
         "lastName": document.getElementById("lastName").value,
         "dateOfBirth": document.getElementById("dateOfBirth").value,
@@ -41,14 +43,15 @@ async function createUser(){
         "email": document.getElementById("email").value,     
         "phoneNumber": document.getElementById("phoneNumber").value      
     }
-    fetch("http://127.0.0.1:8080/createuser", {
+    await fetch("http://127.0.0.1:8080/createuser", {
     method: "POST", // or 'PUT'
     headers: {
         "Content-Type": "application/json",
     },
-    body: JSON.stringify(hotel),
+    body: JSON.stringify(user),
     })
     alert("User successfully created");
+    getAllUsers();
 }
 
 function editUser(userId) {
@@ -57,32 +60,30 @@ function editUser(userId) {
     .then(user => {
         let form = `
         <h2>Edit user</h2>
-        <form>
-            <label>First name:</label>
-            <input type="text" id="editFirstName" value=${user.firstName}><br>
-            <label>Last name:</label>
-            <input type="text" id="editLastName" value=${user.lastName}><br>
-            <label>Date of Birth:</label>
-            <input type="text" id="editDateOfBirth" value=${user.dateOfBirth}><br>
-            <label>Street:</label>
-            <input type="text" id="editStreet" value=${user.street}><br>
-            <label>House number:</label>
-            <input type="text" id="editHouseNumber" value=${user.houseNumber}><br>
-            <label>Zip code:</label>
-            <input type="text" id="editZipCode" value=${user.zipCode}><br>
-            <label>City:</label>
-            <input type="text" id="editCity" value=${user.city}><br>
-            <label>Country:</label>
-            <input type="text" id="editCountry" value=${user.country}><br>
-            <label>Email:</label>
-            <input type="text" id="editEmail" value=${user.email}><br>
-            <label>Phone number:</label>
-            <input type="text" id="editPhoneNumber" value=${user.phoneNumber}><br>
-            <button onclick="submitForm(${userId})">Save changes</button>
-        </form>
+        <label>First name:</label>
+        <input type="text" id="editFirstName" value=${user.firstName}><br>
+        <label>Last name:</label>
+        <input type="text" id="editLastName" value=${user.lastName}><br>
+        <label>Date of Birth:</label>
+        <input type="date" id="editDateOfBirth" value=${user.dateOfBirth}><br>
+        <label>Street:</label>
+        <input type="text" id="editStreet" value=${user.street}><br>
+        <label>House number:</label>
+        <input type="text" id="editHouseNumber" value=${user.houseNumber}><br>
+        <label>Zip code:</label>
+        <input type="text" id="editZipCode" value=${user.zipCode}><br>
+        <label>City:</label>
+        <input type="text" id="editCity" value=${user.city}><br>
+        <label>Country:</label>
+        <input type="text" id="editCountry" value=${user.country}><br>
+        <label>Email:</label>
+        <input type="text" id="editEmail" value=${user.email}><br>
+        <label>Phone number:</label>
+        <input type="text" id="editPhoneNumber" value=${user.phoneNumber}><br>
+        <button onclick="submitForm(${userId})">Save changes</button>
         `
     document.getElementById("editUser").innerHTML = form;
-    })
+    });
 }
 
 async function submitForm(userId) {
@@ -99,18 +100,21 @@ async function submitForm(userId) {
         "phoneNumber": document.getElementById("editPhoneNumber").value
     }
 
-    fetch("http://127.0.0.1:8080/edituser/" + userId, {
+    await fetch("http://127.0.0.1:8080/edituser/" + userId, {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(edditedUser),
     })
-    alert("Changes saved successfully")
+    alert("Changes saved successfully");
+    getAllUsers();
 }
 
-async function deleteUser(userId) {
-    console.log(userId)
-    fetch("http://localhost:8080/deleteuser/" + userId);
-    location.reload();
+
+async function deleteUser(id, firstName, lastName) {
+    if (confirm("Are you sure you want to delete user: " + id + " "+ firstName + " " + lastName)) {
+        await fetch("http://localhost:8080/deleteuser/" + id);
+        getAllUsers();
+    }
 }
