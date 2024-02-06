@@ -40,12 +40,31 @@
     </select>
     <table id="reservations"></table>
 
+    <div id="editReservation">
+        <!-- <h2>Edit reservation</h2>
+            <label>Check-in date:</label>
+            <input type="date" id="editCheckIn" value="${reservation.ciDate}" onchange="setMinCheckOutDate()" ><br>
+            <label>Check-out date:</label>
+            <input type="date" id="editCheckOut" value="${reservation.coDate}"><br>
+            <label>Adults: </label>
+            <input type="number" id="editAdults" value="${reservation.adults}"><br>
+            <label>Children:</label>
+            <input type="number" id="editChildren" value="${reservation.children}"><br>
+            <label> Hotel: </label>
+            <select id="hotelDropdown2" onchange="displayRooms()" value="${reservation.hotelId}"></select><br>
+            <label>Room id:</label>
+            <select id="roomDropdown" value="${reservation.room}">
+                
+            </select><br>
+            <label>User id:</label>
+            <input type="number" id="user"><br>
+            <button onclick="createReservation()">Create reservation</button>
+    </div> -->
     
 
     <div id="createReservation">
         
         <h2>Create reservation</h2>
-        <h1>FIX DEZE</h1>
             <label>Check-in date:</label>
             <input type="date" id="checkIn" onchange="setMinCheckOutDate()"><br>
             <label>Check-out date:</label>
@@ -55,9 +74,11 @@
             <label>Children:</label>
             <input type="number" id="children"><br>
             <label> Hotel: </label>
-            <select id="hotelDropdown2"></select><br>
+            <select id="hotelDropdown2" onchange="displayRooms()"></select><br>
             <label>Room id:</label>
-            <input type="number" id="room"><br>
+            <select id="roomDropdown">
+                
+            </select><br>
             <label>User id:</label>
             <input type="number" id="user"><br>
             <button onclick="createReservation()">Create reservation</button>
