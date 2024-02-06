@@ -26,12 +26,12 @@ function populateDropdown(items, elementId, setValue) {
 }
 
 
-function displayRooms() {
+async function displayRooms() {
     //methode om alle kamers uit de hotel dropdown te laten zien.
     //methode werkt op onchange, dus wordt aangeroepen als de hotel dropdown waarde verandert.
     const hotelId = document.getElementById("hotelDropdown").value;
 
-    fetch("http://127.0.0.1:8080/hotel/" + hotelId + "/rooms")
+    await fetch("http://127.0.0.1:8080/hotel/" + hotelId + "/rooms")
     .then(rooms => rooms.json())
     .then(rooms => {
         let roomshtml = "";

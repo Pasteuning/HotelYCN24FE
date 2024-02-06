@@ -58,53 +58,82 @@ function populateHotelsDropdown(hotels) {
 }
 
 async function searchRooms() {
-    //methode om alle kamers uit de hotel dropdown te laten zien.
-    //methode werkt op onchange, dus wordt aangeroepen als de hotel dropdown waarde verandert.
+    // HotelName krijgen uit de textwaarde van geselecteerde optie in hotelDropdown
+    const dropdown = document.getElementById("hotelDropdown");
+    const selectedOption = dropdown.options[dropdown.selectedIndex];
+    const hotelName = selectedOption.textContent;
+
+    // Parameters om de beschikbare kamers mee te zoeken
     const hotelId = document.getElementById("hotelDropdown").value;
+    const ciDate = document.getElementById("checkIn").value;
+    const coDate = document.getElementById("checkOut").value;
+    const adults = document.getElementById("adults").value;
+    const children = document.getElementById("children").value;
 
-    var hotelDropdown = document.getElementById("hotelDropdown");
-    var selectedOption = hotelDropdown.options[hotelDropdown.selectedIndex];
-    var hotelName = selectedOption.textContent;
+    if (adults < 1) {
+        alert("Rooms may not be reserved without an adult present")
+    } else {
+        try {
+            // URL van de endpoint in back-end
+            const url = `http://127.0.0.1:8080/searchrooms/${hotelId}?cid=${ciDate}&cod=${coDate}&adults=${adults}&children=${children}`;
+            const response = await fetch(url)
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! HIER GEBLEVEN
-    //reservation creëren hier en deze naar endpoint van reservation sturen!!
+            // Checkt of hij een response kan krijgen van de URL
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
 
+            // Maakt een json
+            const rooms = await response.json();
 
-    await fetch("http://127.0.0.1:8080/hotel/" + hotelId + "/rooms")
-    .then(rooms => rooms.json())
-    .then(rooms => {
-        let roomshtml = "";
+            // Als er geen kamers gevonden zijn wordt het volgende bericht getoond
+            if (rooms.length === 0) {
+                let noRoomsFound = `<p>No available rooms found. Please change your search query</p>`;
+                document.getElementById("searchOutput").innerHTML = noRoomsFound; 
+            } else {
+                let roomshtml = "";
 
-        roomshtml += `
-        <h2>${hotelName}</h2>
-        <h2>Rooms available</h2>
-        `
+                roomshtml += `
+                <h2>${hotelName}</h2>
+                <h2>Rooms available</h2>
+                `
 
-        for (let i=0; i<rooms.length; i++) {
-            roomshtml +=`
-            <div class="room">
-                <div class="facilities">
-                    <h2>Facilities</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                    </p>
-                    <div>
-                        <p>Facility 1</p>
-                        <p>Facility 2</p>
-                        <p>Facility 3</p>
-                        <p>Facility 4</p>
+                for (let i=0; i<rooms.length; i++) {
+                    let roomType = rooms[i].roomType.charAt(0) + rooms[i].roomType.slice(1).toLowerCase();
+                    roomshtml +=`
+                    <div class="room">
+                        <div class="facilities">
+                            <h2>Facilities</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                            </p>
+                            <div>
+                                <p>${roomType} room</p>
+                                <p>${rooms[i].noBeds} beds</p>
+                                <p>Facility 3</p>
+                                <p>Facility 4</p>
+                            </div>
+                            <div class="book">
+                                <div id="price">€${rooms[i].price}</div>
+                                <button id="book-btn" onclick="reserveRoom()">Book</button>
+                            </div>
+                        </div>
+                        <div class="images"></div>
                     </div>
-                    <div class="book">
-                        <div id="price">€${rooms[i].price}</div>
-                        <button id="book-btn" onclick="bookRoom()">Book</button>
-                    </div>
-                </div>
-                <div class="images"></div>
-            </div>
-            `
-        }
-        document.getElementById("searchOutput").innerHTML = roomshtml;
-    })
+                    `
+                }
+                document.getElementById("searchOutput").innerHTML = roomshtml; 
+            }     
+        } catch (error) {
+            console.error("An error occurred:", error.message);
+        } 
+    }
+}
+
+
+function reserveRoom() {
+    alert("Dus jij wil een kamer boeken?")
+    alert("Mag niet!");
 }
