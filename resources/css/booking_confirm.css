@@ -1,0 +1,116 @@
+#bookRoom {
+    margin-top: auto;
+    margin-bottom: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+.userDetails {
+    text-align: center;
+}
+
+header {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.header button {
+    font-size: 1.5rem;;
+    border-style: none;
+    background-color: transparent;
+}
+
+.container {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.searchInput {
+    margin: 5px;
+    align-items: center;
+}
+
+#adults {
+    width: 40px;
+}
+
+#children {
+    width: 40px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-button {
+    align-items: center;
+}
+
+.room {
+    border: 1px solid black;
+    width: 80%;
+    margin: 50px;
+    padding: 50px;
+    display: inline-flex;
+}
+
+.facilities {
+    width: 50%;
+}
+
+.reserve {
+    display: flex;
+    justify-content: center;
+}
+
+.reserve-btn {
+    margin: 50px;
+}
+
+#price {
+    margin: 50px;
+}
+
+.images {
+    width: 50%;
+    height: 300px;
+    background-color: rgb(244, 219, 219);
+    margin: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 150px; 
+    text-align: left; 
+    margin: 10px;
+}
+
+.container-2 {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+
+.userDetails,
+.roomDetails {
+    border: 1px solid black;  
+    padding: 20px;
+}
