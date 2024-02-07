@@ -27,16 +27,17 @@ function populateDropdown(items, elementId, setValue) {
     dropdown.value = setValue;
 }
 
-function changeHotel() {
-    // Locatie van hotel vinden
-
-
+async function changeHotel() {
     // Hotel uit dropdown halen
     const dropdown = document.getElementById("hotelDropdown");
     const selectedOption = dropdown.options[dropdown.selectedIndex];
     const selectedText = selectedOption.text;
 
+    // Locatie van hotel vinden
+    const res = await fetch("http://127.0.0.1:8080/hotel/" + selectedOption.value)
+    const hotel = await res.json();
+
     // Geselecteerde hotel in titel zetten
     const hotelValue = document.getElementById('hotelValue');
-    hotelValue.textContent = selectedText;
+    hotelValue.textContent = selectedText + " situated at " + hotel.city;
 }
