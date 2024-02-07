@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="./resources/css/booking.css">
+    <style>
+        #bookRoom {
+            margin-top: auto;
+            margin-bottom: 20px;
+            align-content: center;
+            text-align: center;
+        }
+
+        .userDetails {
+            text-align: center;
+        }
+
+        header {
+            background-color: #dd8006c0;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Papaya Palms Resorts</h1>
+    </header>
+
+    <div class="container-2"></div>
+        <div id="bookRoom">
+            
+        </div>
+    </div>
+
+    
+
+    
+    <div class="bookRoom userDetails">
+        <h2>Fill in Personal Info</h2>
+        <label>First name: </label>
+        <input type="text" id="firstName" required><br>
+        <label>Last name:</label>
+        <input type="text" id="lastName"><br>
+        <label>Date of birth: </label>
+        <input type="date" id="dateOfBirth"><br>
+        <label>Street: </label>
+        <input type="text" id="street"><br>
+        <label>House number: </label>
+        <input type="text" id="houseNumber"><br>
+        <label>Zip code: </label>
+        <input type="text" id="zipCode"><br>
+        <label>City: </label>
+        <input type="text" id="city"><br>
+        <label>Country: </label>
+        <input type="text" id="country"><br>
+        <label>Email: </label>
+        <input type="text" id="email"><br>
+        <label>Phone number: </label>
+        <input type="text" id="phoneNumber"><br>
+        <label>Create account: </label>
+        <input type="checkbox" id="createAccount"><br>
+        <div id="passwordField" style="display:none;">
+            <label>Password: </label>
+            <input type="password" id="password">
+        </div>
+        <label>Donate €100,- to the developers</label>
+        <input type="checkbox"><br>
+        <button id="book-btn" onclick="bookRoom()">Confirm Booking</button>
+    </div>
+
+    <script>
+        // Retrieve query parameters from URL
+        const queryParams = new URLSearchParams(window.location.search);
+        const query = {};
+        for (const [key, value] of queryParams) {
+            query[key] = value;
+        }
+        // Populate the booking form with the retrieved information
+        // For example:
+        document.getElementById("bookRoom").innerHTML = `
+            <h2>Booking Details</h2>
+            <p>Hotel: ${query.hotelName}</p>
+            <p>Room type: ${query.roomType}</p>
+            <p>Check-in: ${query.ciDate}</p>
+            <p>Check-out: ${query.coDate}</p>
+            <p>Adults: ${query.adults}</p>
+            <p>Children: ${query.children}</p>
+            <p>Price: € ${query.price}</p>
+            <button onclick="window.open('outside_activities.html', '_blank')">View Outside Activities</button>
+            <button onclick="window.location.href = 'booking.html'">Back to Hotel Room Overview</button>
+        `;
+        
+        // Add this function to your existing JavaScript code
+    function initTogglePasswordField() {
+        const createAccountCheckbox = document.getElementById("createAccount");
+        const passwordField = document.getElementById("passwordField");
+
+        createAccountCheckbox.addEventListener("change", function() {
+            if (createAccountCheckbox.checked) {
+                passwordField.style.display = "block";
+            } else {
+                passwordField.style.display = "none";
+            }
+        });
+    }
+
+    // Call the function to initialize the toggle functionality
+    initTogglePasswordField();
+    </script>
+</body>
+</html>
