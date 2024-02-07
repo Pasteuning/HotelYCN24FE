@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms (Ivo)</title>
+    <link rel="stylesheet" href="style.ivo.css">
+    <script>
+        function getRooms() {
+            fetch("http://127.0.0.1:8080/allrooms")
+                .then((res) => res.json())
+                .then(rooms => {
+                    //console.log(rooms)
+                    let roomhtml = createTableHeader();
+                    for (let i = 0; i < rooms.length; i++) {
+                        console.log(rooms[i])
+                        for (let key in rooms[i]) { // data[i] = a room
+                            console.log(key, rooms[i][key]);
+                        }
+                        roomhtml += `
+                        <tr>
+                            <td class="identifier">${rooms[i].id}</td>
+                            <td>${rooms[i].roomType}</td>
+                            <td>${rooms[i].noBeds}</td>
+                            <td>${rooms[i].price}</td> 
+                            <td><button onclick="editRoom(${rooms[i].id})">Edit</button></td>
+                            <td><button class="deletebutton" onclick="deleteRoom(${rooms[i].id})">Delete</button></td>
+                        </tr> `;
+                    }
+                    roomhtml += "</table>";
+                    document.getElementById("allrooms").innerHTML = roomhtml;
+                });
+
+        }
+
+        function createTableHeader() {
+            // header room table
+            let roomhtml = "<table id='rooms' border='0' cellspacing='0'>";
+            roomhtml += "<TR>";
+            roomhtml += "<th>" + "&nbsp;" + "</th>";
+            roomhtml += "<th>" + "Room Type" + "</th>";
+            roomhtml += "<th>" + "No. Of Beds" + "</th>";
+            roomhtml += "<th>" + "Price" + "</th>";
+            roomhtml += "<th>" + "Edit" + "</th>";
+            roomhtml += "<th>" + "Delete" + "</th>";
+            roomhtml += "</TR>";
+            return roomhtml;
+        }
+
+        function getEditor(room) {
+            //alert(hotel)
+            let editORcreate = room == null ? "create" : "edit";
+
+            if (room == null) {
+                room = {
+                    //id:null,
+                    roomType: "",
+                    noBeds: "",
+                    price: "",
+                    idhotel: ","
+                };
+            }
+            let caption = editORcreate == "create" ? "Nieuw Room" : room.id;
+            let editorHTML = `
+                <dialog id="editor" open>
+                <h2>`+ caption + `</h2>
+                <hr/>`;
+
+            if (false && editORcreate == "edit") {
+                editorHTML += `<label>ID</label>
+                     <input type="text" id="identifier" readonly value=${hotel.id}><br>`
+            }
+
+            editorHTML += `
+                <label>Type</label>
+                <input type="text" id="roomtype" value="${room.roomType}"><br>
+                <label>No.Beds</label>
+                <input type="text" id="nobeds" value="${room.noBeds}"><br>
+                <label>Price</label>
+                <input type="text" id="price" value="${room.price}"><br>
+                <label>Hotel</label>
+                <input type="text" id="idhotel" value="${room.idhotel}">
+                <hr>
+                <button onclick="cancel(${room.id})">Cancel</button>`;
+            switch (editORcreate) {
+                case "create":
+                    editorHTML += `<button onclick="createHotel()">Opslaan (create)</button>`;
+                    break;
+                case "edit":
+                    editorHTML += `<button onclick="slaRoomOp(${room.id})">Opslaan (edit)</button>`;
+                    break;
+            }
+
+            editorHTML += `</dialog>`;
+            return editorHTML;
+        }
+
+        function editRoom(id) {
+            fetch("http://localhost:8080/room/" + id)
+                .then((res) => res.json())
+                .then((room) => {
+                    let form = getEditor(room);
+                    document.getElementById("editorplaceholder").innerHTML = form;
+                });
+        }
+
+        function slaRoomOp(id) {
+            let editedRoom = {
+                roomType: document.getElementById("roomtype").value,
+                noBeds: document.getElementById("nobeds").value,
+                price: document.getElementById("price").value,
+                idhotel: document.getElementById("idhotel").value,
+            };
+            console.log("Dit gaan we opslaan", editedRoom)
+            fetch("http://127.0.0.1:8080/editroom/" + id, {
+                method: "POST", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(editedRoom),
+            }).then((response) => {
+                getRooms();
+                document.getElementById("editor").close();
+            });
+        }
+
+        function cancel() {
+            document.getElementById("editor").close();
+        }
+
+        function deleteRoom(id) {
+            if (confirm("Zeker weten dat je ROOM " + id + " wilt verwijderen?")) {
+                fetch("http://localhost:8080/deleteroom/" + id).then((response) => {
+                    getRooms();
+                });
+            }
+            // location.reload();
+        }
+    </script>
+</head>
+
+<body onload="getRooms()">
+    <button onclick="getRooms()">getRooms</button>
+    <hr />
+    <div id="allrooms"></div>
+    <div id="editorplaceholder"></div>
+</body>
+
+</html>

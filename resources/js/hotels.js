@@ -51,24 +51,22 @@ function editHotel(hotelId) {
     .then(hotel => {
         let form = `
         <h2>Edit hotel</h2>
-        <form>
-            <label>Name:</label>
-            <input type="text" id="editName" value=${hotel.name}><br>
-            <label>Street:</label>
-            <input type="text" id="editStreet" value=${hotel.street}><br>
-            <label>House number:</label>
-            <input type="text" id="editHouseNumber" value=${hotel.houseNumber}><br>
-            <label>Zip code:</label>
-            <input type="text" id="editZipCode" value=${hotel.zipCode}><br>
-            <label>City:</label>
-            <input type="text" id="editCity" value=${hotel.city}><br>
-            <label>Country:</label>
-            <input type="text" id="editCountry" value=${hotel.country}><br>
-            <button onclick="submitHotelForm(${hotelId})">Save changes</button>
-        </form>
+        <label>Name:</label>
+        <input type="text" id="editName" value=${hotel.name}><br>
+        <label>Street:</label>
+        <input type="text" id="editStreet" value=${hotel.street}><br>
+        <label>House number:</label>
+        <input type="text" id="editHouseNumber" value=${hotel.houseNumber}><br>
+        <label>Zip code:</label>
+        <input type="text" id="editZipCode" value=${hotel.zipCode}><br>
+        <label>City:</label>
+        <input type="text" id="editCity" value=${hotel.city}><br>
+        <label>Country:</label>
+        <input type="text" id="editCountry" value=${hotel.country}><br>
+        <button onclick="submitHotelForm(${hotelId})">Save changes</button>
         `
     document.getElementById("editHotel").innerHTML = form;
-    })
+    });
 }
 
 function submitHotelForm(hotelId) {
@@ -89,6 +87,7 @@ function submitHotelForm(hotelId) {
         body: JSON.stringify(edditedHotel),
     })
     alert("Changes saved successfully");
+    getAllHotels();
 }
 
 async function deleteHotel(hotelId) {

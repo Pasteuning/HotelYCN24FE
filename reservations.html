@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations</title>
+    <link rel="stylesheet" href="./resources/css/reservations.css">
+    <script src="./resources/js/reservations.js"></script>
+</head>
+<body>
+    <p>User view:</p>
+    <a href="index.html"><button>Home</button></a>
+    <a href="booking.html"><button>Booking</button></a>
+    <p>Admin view:</p>
+    <a href="hotels.html"><button>Hotels</button></a>
+    <a href="rooms.html"><button>Rooms</button></a>
+    <a href="users.html"><button>Users</button></a>
+    <a href="reservations.html"><button>Reservations</button></a>
+
+    <h1>Reservations</h1>
+    <label>Select hotel:</label>
+    <select id="hotelDropdown">
+        <option value="0">All hotels</option>
+    </select><br>
+    <label>Sort by:</label>
+    <select id="sort" onchange="getAllReservations()">
+        <option value="hotelId">Hotel id</option>
+        <option value="hotelName">Hotel name</option>
+        <option value="roomId">Room id</option>
+        <option value="reservationId">Reservation id</option>
+        <option value="ciDate">Check-in date</option>
+        <option value="coDate">Check-out date</option>
+        <option value="adults">Adults</option>
+        <option value="children">Children</option>
+        <option value="surcharge">Surcharge</option>
+        <option value="status">Status</option>
+        <option value="userId">User id</option>
+        <option value="firstName">First name</option>
+        <option value="lastName">Last name</option>
+    </select>
+    <table id="reservations"></table>
+
+    <div id="editReservation">
+        <!-- <h2>Edit reservation</h2>
+            <label>Check-in date:</label>
+            <input type="date" id="editCheckIn" value="${reservation.ciDate}" onchange="setMinCheckOutDate()" ><br>
+            <label>Check-out date:</label>
+            <input type="date" id="editCheckOut" value="${reservation.coDate}"><br>
+            <label>Adults: </label>
+            <input type="number" id="editAdults" value="${reservation.adults}"><br>
+            <label>Children:</label>
+            <input type="number" id="editChildren" value="${reservation.children}"><br>
+            <label> Hotel: </label>
+            <select id="hotelDropdown2" onchange="displayRooms()" value="${reservation.hotelId}"></select><br>
+            <label>Room id:</label>
+            <select id="roomDropdown" value="${reservation.room}">
+                
+            </select><br>
+            <label>User id:</label>
+            <input type="number" id="user"><br>
+            <button onclick="createReservation()">Create reservation</button>
+    </div> -->
+    
+
+    <div id="createReservation">
+        
+        <h2>Create reservation</h2>
+            <label>Check-in date:</label>
+            <input type="date" id="checkIn" onchange="setMinCheckOutDate()"><br>
+            <label>Check-out date:</label>
+            <input type="date" id="checkOut"><br>
+            <label>Adults: </label>
+            <input type="number" id="adults"><br>
+            <label>Children:</label>
+            <input type="number" id="children"><br>
+            <label> Hotel: </label>
+            <select id="hotelDropdown2" onchange="displayRooms()"></select><br>
+            <label>Room id:</label>
+            <select id="roomDropdown">
+                
+            </select><br>
+            <label>User id:</label>
+            <input type="number" id="user"><br>
+            <button onclick="createReservation()">Create reservation</button>
+        </div>  
+</body>
+</html>

@@ -8,6 +8,7 @@
     <script src="./resources/js/booking.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
     <a href="index.html"><button>Home</button></a>
     <a href="hotels.html"><button>Hotels</button></a>
     <a href="rooms.html"><button>Rooms</button></a>
@@ -49,5 +50,56 @@
             <button onclick="searchRooms()" id="search-button">Show available rooms</button>
         </div>
     </form>
+=======
+    <p>User view:</p>
+    <a href="index.html"><button>Home</button></a>
+    <a href="booking.html"><button>Booking</button></a>
+    <p>Admin view:</p>
+    <a href="hotels.html"><button>Hotels</button></a>
+    <a href="rooms.html"><button>Rooms</button></a>
+    <a href="users.html"><button>Users</button></a>
+    <a href="reservations.html"><button>Reservations</button></a>
+    
+    <h1>Booking</h1>
+    <div class="container">
+        <div class="searchInput">
+            <label for="hotelDropdown">Choose a hotel</label>
+            <select name="hotelDropdown" id="hotelDropdown"></select>
+        </div>
+        <div class="searchInput">
+            <label for="checkIn">Check-in on</label>
+            <input type="date" id="checkIn" onchange="setMinCheckOutDate()">
+        </div>
+        <div class="searchInput">
+            <label for="checkOut">Check-out on</label>
+            <input type="date" id="checkOut">
+        </div>
+        <div class="searchInput">
+            <label>Adults</label>
+            <input type="number" id="adults" min="1">
+        </div>
+        <div class="searchInput">
+            <label>Children</label>
+            <input type="number" id="children" min="0">
+        </div>
+    </div>
+    <div class="container">
+        <button onclick="searchRooms()" id="search-button">Show available rooms</button>
+    </div>
+
+    <div class="container">
+        <div id="searchOutput"></div>
+    </div>
+
+
+    
+
+
+    
+    <div class="container-2">
+        <div id="bookRoom"></div>
+    </div>
+    
+>>>>>>> development
 </body>
 </html>
