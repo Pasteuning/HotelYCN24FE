@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+//hotel dropdown direct vullen met hotels
+getAllHotels().then(hotels => {
+    populateHotelsDropdown(hotels);
+})
+=======
 document.addEventListener('DOMContentLoaded', async function () {
     //hotel dropdown direct vullen met hotels
     await getAllHotels().then(hotels => {
@@ -5,12 +11,25 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
     displayRooms();
 });
+>>>>>>> development
 
 function getAllHotels(){
     return fetch("http://127.0.0.1:8080/allhotels")
     .then(hotels => hotels.json());
 }
 
+<<<<<<< HEAD
+function getHotel(hotelId) {
+    return fetch("http://127.0.0.1:8080/hotel/" + hotelId)
+    .then(res => res.json())
+}
+
+function getRooms(hotelId){
+    return fetch("http://127.0.0.1:8080/hotel/" + hotelId + "/rooms")
+    .then(rooms => rooms.json());
+}
+=======
+>>>>>>> development
 
 function populateDropdown(items, elementId, setValue) {
     //methode om een dropdown(elementId) te vullen met items en de selector op een item te zetten
@@ -25,8 +44,12 @@ function populateDropdown(items, elementId, setValue) {
     dropdown.value = setValue;
 }
 
+<<<<<<< HEAD
+function displayRooms() {
+=======
 
 async function displayRooms() {
+>>>>>>> development
     //methode om alle kamers uit de hotel dropdown te laten zien.
     //methode werkt op onchange, dus wordt aangeroepen als de hotel dropdown waarde verandert.
     const hotelId = document.getElementById("hotelDropdown").value;
@@ -76,13 +99,21 @@ async function createRoom() {
         "price": document.getElementById("price").value
     }
     
+<<<<<<< HEAD
+    fetch("http://127.0.0.1:8080/createroom?hotelId=" + hotelId, {
+=======
     await fetch("http://127.0.0.1:8080/createroom?hotelId=" + hotelId, {
+>>>>>>> development
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(room),
     })
+<<<<<<< HEAD
+    .then(alert("De error handling van deze functie werkt alleen met deze alert ertussen. Fix dit nog!!"))
+=======
+>>>>>>> development
     .then(res => res.json())
     .then(createdRoom => {
         if (createdRoom !== null) {
@@ -91,6 +122,8 @@ async function createRoom() {
             alert("Room creation failed");
         }  
     });
+<<<<<<< HEAD
+=======
     //kamerweergave verversen
     displayRooms()
 }
@@ -154,4 +187,5 @@ function deleteRoom(roomId) {
             displayRooms();
         });
     }
+>>>>>>> development
 }

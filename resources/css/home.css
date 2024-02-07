@@ -1,0 +1,196 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #1e3c5e;
+}
+
+/*navbar*/
+
+.navbar{
+    background: #3ce2a5;
+    padding: 20px;
+}
+
+.navbar .navbar_content {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 1000px;
+}
+
+.navbar a{
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    padding: 14px 16px;
+    font-size: 20px;
+    margin: auto;
+    color: #000;
+}
+
+
+/*reservation*/
+
+.reservation{
+    display: flex;
+    padding: 20px;
+    background: #219e70;
+    font-size: 16px;
+}
+
+.reservation .container {
+    display: flex;
+    color: #ffff;
+    margin: auto;
+    
+}
+
+.reservation .container input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ffff;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.reservation .container div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.reservation .container select{
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ffff;
+    margin-top: 5px;
+}
+.reservation .container button{
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ffff;
+    margin-top: 15px;
+}
+
+
+/*hero*/
+
+.hero_container{
+    background-image:url(https://yc2401fotos.blob.core.windows.net/upload/hotel_hero.jpeg);
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+}
+
+.hero_container .hero_text {
+    background: #fafafad7;
+    width: 300px;
+    padding: 20px 10px;
+    text-align: left;
+    margin-left: 80px;
+}
+
+/*history*/
+
+.history_container{
+    display: flex;
+    background: #3ce2a573;
+    align-items: center;
+    justify-content: center;
+}
+
+.history_container img{
+    width: fit-content;
+    height: 500px;
+
+}
+
+.history_container .history_text {
+    background: #fafafad7;
+    width: 300px;
+    padding: 20px;
+    text-align: right;
+    margin-left: 80px;
+}
+
+
+
+.history_container .history_text button{
+    text-decoration: none;
+    padding:10px;
+    border: 2px solid #219e70;
+    border-radius: 5px;
+    font-weight:600;
+    color: #ffff;
+    background: #219e70;
+    width: fit-content;
+    margin-top: 30px;
+}
+
+
+/*explore our hotels*/
+
+.explore_container{
+    text-align: center;
+}
+
+
+/*footer*/
+
+.footer{
+    padding: 30px 0px;
+    background-color: #e0d395;
+}
+
+.footer_content{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 800px;
+}
+
+.footer_content div{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_content a{
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.footer_content i{
+    margin-right: 5px;
+}
+
+.footer_content .newsletter {
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+
+.footer_content .newsletter .email{
+    display: flex;
+    flex-direction: row;
+    color: #000;
+}
+
+.footer_content .newsletter button{
+    padding: 10px;
+    color: #ffff;
+    background-color: #219e70;
+    border: 2px solid #219e70;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 100px;
+    margin-left: auto;
+}
