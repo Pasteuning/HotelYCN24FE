@@ -15,8 +15,13 @@ body{
 .navbar{
     background: #3ce2a5;
     padding: 20px;
-    align-items: center;
+}
+
+.navbar .navbar_content {
     display: flex;
+    align-items: center;
+    margin: auto;
+    width: 1000px;
 }
 
 .navbar a{
@@ -36,6 +41,7 @@ body{
     display: flex;
     padding: 20px;
     background: #219e70;
+    font-size: 16px;
 }
 
 .reservation .container {
@@ -50,12 +56,30 @@ body{
     border-radius: 5px;
     border: 2px solid #ffff;
     margin-right: 5px;
+    margin-top: 5px;
 }
 
 .reservation .container div{
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
 }
+
+.reservation .container select{
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ffff;
+    margin-top: 5px;
+}
+.reservation .container button{
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ffff;
+    margin-top: 15px;
+}
+
 
 /*hero*/
 
@@ -77,26 +101,29 @@ body{
 /*history*/
 
 .history_container{
+    display: flex;
     background: #3ce2a573;
-    padding: 20px 10px;
-    text-align: left;
-    margin-left: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .history_container img{
-    width: 500px;
+    width: fit-content;
+    height: 500px;
+
 }
 
 .history_container .history_text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
+    background: #fafafad7;
+    width: 300px;
+    padding: 20px;
+    text-align: right;
+    margin-left: 80px;
 }
 
 
 
-.history_container .history_text a{
+.history_container .history_text button{
     text-decoration: none;
     padding:10px;
     border: 2px solid #219e70;
@@ -105,6 +132,7 @@ body{
     color: #ffff;
     background: #219e70;
     width: fit-content;
+    margin-top: 30px;
 }
 
 
@@ -116,6 +144,11 @@ body{
 
 
 /*footer*/
+
+.footer{
+    padding: 30px 0px;
+    background-color: #e0d395;
+}
 
 .footer_content{
     display: flex;
@@ -133,10 +166,22 @@ body{
     text-decoration: none;
     font-weight: 600;
     margin-bottom: 5px;
+    font-size: 16px;
+}
+.footer_content i{
+    margin-right: 5px;
+}
+
+.footer_content .newsletter {
+    font-size: 16px;
+    font-weight: 600;
+    
 }
 
 .footer_content .newsletter .email{
-    
+    display: flex;
+    flex-direction: row;
+    color: #000;
 }
 
 .footer_content .newsletter button{
@@ -146,4 +191,6 @@ body{
     border: 2px solid #219e70;
     border-radius: 4px;
     font-weight: 600;
+    width: 100px;
+    margin-left: auto;
 }

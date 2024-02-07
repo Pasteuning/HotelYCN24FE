@@ -1,0 +1,168 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #1e3c5e;
+    letter-spacing:1.5px;
+}
+
+h1{
+    font-size: 80px;
+}
+
+h2{
+    font-size: 60px;
+}
+
+p{
+    font-size: 16px;
+}
+
+/*navbar*/
+
+.navbar{
+    background: #1e3c5e;
+    padding: 20px;
+}
+
+.navbar .navbar_content {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 1000px;
+}
+
+.navbar a{
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    padding: 14px 16px;
+    font-size: 20px;
+    margin: auto;
+    color: #fff;
+}
+
+
+/*hero*/
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+    background-color: #e0d395;
+}
+
+.hero img{
+    height: 500px;
+    width: 900px;
+}
+
+/*our history*/
+
+.our_history{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    color: #e0d395;
+    background-color: #1e3c5e;
+    padding: 20px 0px;
+}
+
+.our_history p{
+    width: 600px;
+    margin: 50px;
+    text-align: center;
+}
+.our_history img{
+    height: 500px;
+}
+
+/*owner*/
+
+.owner{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.owner .owner_text{
+    width: 600px;
+}
+
+.owner .owner_text p{
+    width: 500px;
+}
+
+.owner .owner_pic p{
+    width: 200px;
+    font-size: 12px;
+    margin: 10px;
+}
+
+
+.owner .owner_pic img{
+    height: 300px;
+}
+
+
+
+
+
+/*footer*/
+
+.footer{
+    padding: 30px 0px;
+    background-color: #e0d395;
+}
+
+.footer_content{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 800px;
+}
+
+.footer_content div{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_content a{
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.footer_content i{
+    margin-right: 5px;
+}
+
+.footer_content .newsletter {
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+
+.footer_content .newsletter .email{
+    display: flex;
+    flex-direction: row;
+    color: #000;
+}
+
+.footer_content .newsletter button{
+    padding: 10px;
+    color: #ffff;
+    background-color: #219e70;
+    border: 2px solid #219e70;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 100px;
+    margin-left: auto;
+}

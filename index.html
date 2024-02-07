@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="resources/css/home.css">
-    <script src="./resources/js/booking.js"></script>
+    <script src="./resources/js/home.js"></script>
     <title>Home</title>
 </head>
 <body>
     <div class="navbar">
-        <a href="">Home</a>
-        <a href="ourhotels.html">Our Hotels</a>
-        <a href="booking.html">Booking</a>
-        <a href="">About Us</a>
-        <a href="">Contact</a>
-        <a href="">Account</a>
+        <div class="navbar_content">
+            <a href="#">Home</a>
+            <a href="ourhotels.html">Our Hotels</a>
+            <a href="booking.html">Booking</a>
+            <a href="about_us.html">About Us</a>
+            <a href="">Contact</a>
+            <a href="">Account</a>
+        </div>
     </div>
     <div class="reservation">
         
         <div class="container">
             <div class="searchInput">
                 <label for="hotelDropdown">Where to (required)</label>
-                <select id="hotelDropdown">
-                    <option value="0">All hotels</option>
-                </select>
+                <select id="hotelDropdown"></select>
             </div>
             <div class="searchInput">
                 <label for="checkIn">Check-in</label>
@@ -42,22 +42,16 @@
                 <label>Children</label>
                 <input type="number" id="children" min="0">
             </div>
+            <div class="searchInput">
+                <label for="roomTypeDropdown">Type of room</label>
+                <select id="roomTypeDropdown">
+                    <option value="0">Single</option>
+                    <option value="1">Double</option>
+                    <option value="2">Family</option></select>
+            </div>
         </div>
         <div class="container">
             <button onclick="searchRooms()" id="search-button">Check Availability</button>
-        </div>
-    
-        <div class="container">
-            <div id="searchOutput"></div>
-        </div>
-    
-    
-        
-    
-    
-        
-        <div class="container-2">
-            <div id="bookRoom"></div>
         </div>
     </div>
     <div class="hero_container">
@@ -72,7 +66,9 @@
         <div class="history_text">
             <h1>Our History</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nulla omnis impedit sit repellat aut alias amet fuga suscipit voluptatum.</p>
-            <a href="">Read More</a>
+            <a href="">
+                <button>Read More</button>
+            </a>
         </div>
     </div>
     <div class="explore_container">
@@ -89,9 +85,9 @@
                 <a href="">Terms & Conditions</a>
             </div>
             <div class="socials">
-                <a href=""><i class="fa-brands fa-facebook"></i>Facebook</a>
-                <a href=""><i class="fa-brands fa-x"></i>X</a>
-                <a href=""><i class="fa-brands fa-instagram"></i>Instagram</a>
+                <a href=""><i class="fa-brands fa-facebook"></i>Papaya Palms</a>
+                <a href=""><i class="fa-brands fa-x"></i>@PapayaPalms</a>
+                <a href=""><i class="fa-brands fa-instagram"></i>@PapayaPalms</a>
             </div>
             <div class="newsletter">
                 <p>Subscribe to our newsletter</p>
