@@ -158,64 +158,16 @@ async function searchRooms() {
 
 
 function reserveRoom(query, room) {
-    document.getElementById("searchOutput").innerHTML = ""; 
-    console.log(query)
-    console.log(room)
-    
-    let bookRoomHtml = `
-        <h2>Book room</h2>
-        <div class="bookRoom userDetails">
-            <label>First name: </label>
-            <input type="text" id="firstName" required><br>
-            <label>Last name:</label>
-            <input type="text" id="lastName"><br>
-            <label>Date of birth: </label>
-            <input type="date" id="dateOfBirth"><br>
-            <label>Street: </label>
-            <input type="text" id="street"><br>
-            <label>House number: </label>
-            <input type="text" id="houseNumber"><br>
-            <label>Zip code: </label>
-            <input type="text" id="zipCode"><br>
-            <label>City: </label>
-            <input type="text" id="city"><br>
-            <label>Country: </label>
-            <input type="text" id="country"><br>
-            <label>Email: </label>
-            <input type="text" id="email"><br>
-            <label>Phone number: </label>
-            <input type="text" id="phoneNumber"><br>
-            <label>Create account: </label>
-            <input type="checkbox" id="createAccount" onchange="togglePasswordField()"><br>
-            <div id="passwordField" style="display:none;">
-                <label>Password: </label>
-                <input type="password" id="password">
-            </div>
-            <label>Donate €100,- to the developers</label>
-            <input type="checkbox"><br>
-            <button onclick="goBack()">Go Back</button>
-            <button id="book-btn" onclick="bookRoom()">Book this room</button>
-        </div>
-        <div class="bookRoom roomDetails">
-            <h3>Your stay at ${query.hotelName}</h3>
-            <div>${query.ciDate} - ${query.coDate}</div>
-            <div>${query.adults} adults</div>
-            <div>${query.children} children</div>
-            <div class="price">
-                <div>${room.roomType}</div>
-                <div>€ ${query.price}</div>
-                <div class="childrenFee" style="display:none;">
-                    <div>Children fee</div>
-                    <div>${query.children}</div>
-                </div>
-                <div>Total Price</div>
-                <div>€ ${query.price}</div>
-            </div>
-        </div>
-        
-        
-    `
-    document.getElementById("bookRoom").innerHTML = bookRoomHtml; 
+    // Build the query parameters
+    const queryParams = new URLSearchParams();
+    for (const key in query) {
+        queryParams.append(key, query[key]);
+    }
+    // Append room type and price to the query parameters
+    queryParams.append('roomType', room.roomType);
+    queryParams.append('price', room.price);
+    // Redirect to book.html with query parameters
+    window.location.href = "booking_confirm.html?" + queryParams.toString();
 }
 
 
