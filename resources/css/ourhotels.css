@@ -1,0 +1,83 @@
+/*Header*/
+.header {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.header button {
+    font-size: 1.5rem;;
+    border-style: none;
+    background-color: transparent;
+}
+
+
+
+/*Intro*/
+#hotelChainImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.intro-wrapper {
+    width: 100%;
+    height: 100%;
+} 
+
+.intro h3 {
+    font-size: 1.3rem;;
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+
+.intro h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.intro {
+    border: 1px solid black;
+    background-color: rgba(210, 227, 220, 0.5);
+    width: 400px;
+    padding: 20px;
+    position: absolute;
+    top: 200px;
+    left: 10%;
+}
+
+.intro:hover {
+    background-color: rgba(233, 220, 182, 0.5);
+}
+
+
+
+/*Find Your Perfect Stay*/
+.chooseHotel {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.chooseHotel p {
+    text-align: center;
+    font-size: 1.5rem;;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+.hotelSelector {
+    display: flex;
+    justify-content: center;
+}
+
+.hotelSelector button {
+    margin-left: 50px;
+}
+
+.selectedHotel h2 {
+    text-align: center;
+    font-size: 2rem;;
+}
