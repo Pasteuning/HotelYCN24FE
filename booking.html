@@ -8,6 +8,49 @@
     <script src="./resources/js/booking.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
+    <a href="index.html"><button>Home</button></a>
+    <a href="hotels.html"><button>Hotels</button></a>
+    <a href="rooms.html"><button>Rooms</button></a>
+    <a href="booking.html"><button>Booking</button></a>
+    <a href="users.html"><button>Users</button></a>
+    
+    <h1>Booking</h1>
+    <form>
+        <div class="container">
+            <div class="searchRoom">
+                <label for="hotelDropdown">Choose a hotel</label>
+                <select name="hotelDropdown" id="hotelDropdown"></select>
+            </div>
+            <div class="searchRoom">
+                <label for="checkin">Check-in on</label>
+                <input type="date" id="checkin">
+            </div>
+            <div class="searchRoom">
+                <label for="checkout">Check-out on</label>
+                <input type="date" id="checkout" onchange="setMinCheckOutDate()">
+            </div>
+            <div class="searchRoom">
+                <label>Adults</label>
+                <input type="number" id="adults" min="1">
+            </div>
+            <div class="searchRoom">
+                <label>Children</label>
+                <input type="number" id="children" min="0">
+            </div>
+            <div class="searchRoom">
+                <label>Type of room</label>
+                <select id="roomTypeDropdown" onchange="displayRoomTypes()">
+                    <option value="0">Single</option>
+                    <option value="1">Double</option>
+                    <option value="2">Family</option></select>
+            </div>
+        </div>
+        <div class="search-container">
+            <button onclick="searchRooms()" id="search-button">Show available rooms</button>
+        </div>
+    </form>
+=======
     <p>User view:</p>
     <a href="index.html"><button>Home</button></a>
     <a href="booking.html"><button>Booking</button></a>
@@ -59,5 +102,6 @@
 
  
     
+>>>>>>> development
 </body>
 </html>
