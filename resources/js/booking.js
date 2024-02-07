@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-//hotel dropdown direct vullen met hotels
-getAllHotels().then(hotels => {
-    populateHotelsDropdown(hotels);
-})
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Datum ophalen in format: YYYY-MM-DD
-    let today = new Date();
-    // Minimumdatum van checkin op vandaag zetten
-    document.getElementById("checkin").min = today.toISOString().split('T')[0];
-
-    let tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
-    // Minimumdatum van checkout op morgen zetten
-    document.getElementById("checkout").min = tomorrow.toISOString().split('T')[0];
-});
-
-
-=======
 //Startup script:
 document.addEventListener('DOMContentLoaded', function () {
     // Datum ophalen in format: YYYY-MM-DD
@@ -61,7 +41,6 @@ function setMinCheckOutDate(){
     }
 }
 
->>>>>>> development
 function getAllHotels(){
     return fetch("http://127.0.0.1:8080/allhotels")
     .then(hotels => hotels.json());
@@ -78,14 +57,6 @@ function populateHotelsDropdown(hotels) {
     });
 }
 
-<<<<<<< HEAD
-function searchRooms() {
-    alert("To be continued...");
-}
-
-function setMinCheckOutDate(){
-    alert("To be continued...")
-=======
 async function searchRooms() {
     // Elementen ophalen
     const hotelDropdown = document.getElementById("hotelDropdown");
@@ -222,5 +193,4 @@ function goBack() {
 function bookRoom() {
     alert("Dus jij wil een kamer boeken?");
     alert("Mag niet!");
->>>>>>> development
 }

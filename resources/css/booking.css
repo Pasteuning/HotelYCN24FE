@@ -1,11 +1,4 @@
 .container {
-<<<<<<< HEAD
-    display: flex;
-}
-
-.searchRoom {
-    margin: 5px;
-=======
     border: 1px solid black;
     display: flex;
     justify-content: center;
@@ -19,7 +12,6 @@ h2 {
 .searchInput {
     margin: 5px;
     align-items: center;
->>>>>>> development
 }
 
 #adults {
@@ -38,9 +30,6 @@ h2 {
 
 #search-button {
     align-items: center;
-<<<<<<< HEAD
-}
-=======
 }
 
 .room {
@@ -95,4 +84,3 @@ label {
     padding: 20px;
 }
 
->>>>>>> development
