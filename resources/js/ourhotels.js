@@ -29,7 +29,7 @@ function populateDropdown(items, elementId, setValue) {
 
 function changeHotel() {
     // Locatie van hotel vinden
-    
+
 
     // Hotel uit dropdown halen
     const dropdown = document.getElementById("hotelDropdown");
@@ -38,5 +38,5 @@ function changeHotel() {
 
     // Geselecteerde hotel in titel zetten
     const hotelValue = document.getElementById('hotelValue');
-    hotelValue.textContent = selectedText + " situated at " + ;
+    hotelValue.textContent = selectedText;
 }
