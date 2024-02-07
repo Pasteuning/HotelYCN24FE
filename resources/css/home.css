@@ -1,0 +1,149 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #1e3c5e;
+}
+
+/*navbar*/
+
+.navbar{
+    background: #3ce2a5;
+    padding: 20px;
+    align-items: center;
+    display: flex;
+}
+
+.navbar a{
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    padding: 14px 16px;
+    font-size: 20px;
+    margin: auto;
+    color: #000;
+}
+
+
+/*reservation*/
+
+.reservation{
+    display: flex;
+    padding: 20px;
+    background: #219e70;
+}
+
+.reservation .container {
+    display: flex;
+    color: #ffff;
+    margin: auto;
+    
+}
+
+.reservation .container input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ffff;
+    margin-right: 5px;
+}
+
+.reservation .container div{
+    display: flex;
+    flex-direction: column;
+}
+
+/*hero*/
+
+.hero_container{
+    background-image:url(https://yc2401fotos.blob.core.windows.net/upload/hotel_hero.jpeg);
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+}
+
+.hero_container .hero_text {
+    background: #fafafad7;
+    width: 300px;
+    padding: 20px 10px;
+    text-align: left;
+    margin-left: 80px;
+}
+
+/*history*/
+
+.history_container{
+    background: #3ce2a573;
+    padding: 20px 10px;
+    text-align: left;
+    margin-left: auto;
+}
+
+.history_container img{
+    width: 500px;
+}
+
+.history_container .history_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+
+
+.history_container .history_text a{
+    text-decoration: none;
+    padding:10px;
+    border: 2px solid #219e70;
+    border-radius: 5px;
+    font-weight:600;
+    color: #ffff;
+    background: #219e70;
+    width: fit-content;
+}
+
+
+/*explore our hotels*/
+
+.explore_container{
+    text-align: center;
+}
+
+
+/*footer*/
+
+.footer_content{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 800px;
+}
+
+.footer_content div{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_content a{
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.footer_content .newsletter .email{
+    
+}
+
+.footer_content .newsletter button{
+    padding: 10px;
+    color: #ffff;
+    background-color: #219e70;
+    border: 2px solid #219e70;
+    border-radius: 4px;
+    font-weight: 600;
+}

@@ -3,25 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel</title>
-    <link rel="stylesheet" href="./resources/css/index.css">
-    <script src="./resources/js/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="resources/css/home.css">
+    <script src="./resources/js/booking.js"></script>
+    <title>Home</title>
 </head>
 <body>
-    <p>User view:</p>
-    <a href="index.html"><button>Home</button></a>
-    <a href="booking.html"><button>Booking</button></a>
-    <p>Admin view:</p>
-    <a href="hotels.html"><button>Hotels</button></a>
-    <a href="rooms.html"><button>Rooms</button></a>
-<<<<<<< HEAD
-    <a href="booking.html"><button>Booking</button></a>
-=======
->>>>>>> development
-    <a href="users.html"><button>Users</button></a>
-    <a href="reservations.html"><button>Reservations</button></a>
-
-    <h1>Home page</h1>
+    <div class="navbar">
+        <a href="">Home</a>
+        <a href="ourhotels.html">Our Hotels</a>
+        <a href="booking.html">Booking</a>
+        <a href="">About Us</a>
+        <a href="">Contact</a>
+        <a href="">Account</a>
+    </div>
+    <div class="reservation">
+        
+        <div class="container">
+            <div class="searchInput">
+                <label for="hotelDropdown">Where to (required)</label>
+                <select id="hotelDropdown">
+                    <option value="0">All hotels</option>
+                </select>
+            </div>
+            <div class="searchInput">
+                <label for="checkIn">Check-in</label>
+                <input type="date" id="checkIn" onchange="setMinCheckOutDate()">
+            </div>
+            <div class="searchInput">
+                <label for="checkOut">Check-out</label>
+                <input type="date" id="checkOut">
+            </div>
+            <div class="searchInput">
+                <label>Adults</label>
+                <input type="number" id="adults" min="1">
+            </div>
+            <div class="searchInput">
+                <label>Children</label>
+                <input type="number" id="children" min="0">
+            </div>
+        </div>
+        <div class="container">
+            <button onclick="searchRooms()" id="search-button">Check Availability</button>
+        </div>
     
+        <div class="container">
+            <div id="searchOutput"></div>
+        </div>
+    
+    
+        
+    
+    
+        
+        <div class="container-2">
+            <div id="bookRoom"></div>
+        </div>
+    </div>
+    <div class="hero_container">
+        <div class="hero_text">
+            <h2>Welcome to</h2>
+            <h1>Papaya Palms Resorts</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae libero minus ab. Laboriosam unde, quibusdam nisi maxime, nesciunt ea, a excepturi at alias molestias neque.</p>
+        </div>
+    </div>
+    <div class="history_container">
+        <img src="https://yc2401fotos.blob.core.windows.net/upload/Spa_1.png" alt="">
+        <div class="history_text">
+            <h1>Our History</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nulla omnis impedit sit repellat aut alias amet fuga suscipit voluptatum.</p>
+            <a href="">Read More</a>
+        </div>
+    </div>
+    <div class="explore_container">
+        <h1>Explore Our Hotels</h1>
+        <div class="explore_carousel">
+
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer_content">
+            <div class="legal">
+                <a href="">About Us</a>
+                <a href="">Contact</a>
+                <a href="">Terms & Conditions</a>
+            </div>
+            <div class="socials">
+                <a href=""><i class="fa-brands fa-facebook"></i>Facebook</a>
+                <a href=""><i class="fa-brands fa-x"></i>X</a>
+                <a href=""><i class="fa-brands fa-instagram"></i>Instagram</a>
+            </div>
+            <div class="newsletter">
+                <p>Subscribe to our newsletter</p>
+                <div class="email"></div>
+                    <input type="text" placeholder="Email Address">
+                    <button>Ok</button>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
