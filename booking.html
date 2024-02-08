@@ -5,59 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <link rel="stylesheet" href="./resources/css/booking.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="./resources/js/booking.js"></script>
 </head>
 <body>
-    <p>User view:</p>
-    <a href="index.html"><button>Home</button></a>
-    <a href="booking.html"><button>Booking</button></a>
-    <p>Admin view:</p>
-    <a href="hotels.html"><button>Hotels</button></a>
-    <a href="rooms.html"><button>Rooms</button></a>
-    <a href="users.html"><button>Users</button></a>
-    <a href="reservations.html"><button>Reservations</button></a>
-    
-    <h1>Booking</h1>
     <div class="container">
-        <div class="searchInput">
-            <label for="hotelDropdown">Choose a hotel</label>
-            <select name="hotelDropdown" id="hotelDropdown"></select>
+        <div class="header">
+            <a href="index.html"><button>Home</button></a>
+            <a href="ourhotels.html"><button>Our Hotels</button></a>
+            <a href="#"><button>Booking</button></a>
+            <a href="about_us.html"><button>About Us</button></a>
+            <a href=""><button>Contact</button></a>
+            <a href=""><button>Account</button></a>
         </div>
-        <div class="searchInput">
-            <label for="checkIn">Check-in on</label>
-            <input type="date" id="checkIn" onchange="setMinCheckOutDate()">
+        
+        <div id="title">
+            <h1>Check availibility</h1>
         </div>
-        <div class="searchInput">
-            <label for="checkOut">Check-out on</label>
-            <input type="date" id="checkOut">
+        <div class="search-container">
+            <div class="input-container">
+                <div class="searchInput">
+                    <label for="hotelDropdown">Choose a hotel</label>
+                    <select name="hotelDropdown" id="hotelDropdown"></select>
+                </div>
+                <div class="searchInput">
+                    <label for="checkIn">Check-in on</label>
+                    <input type="date" id="checkIn" onchange="setMinCheckOutDate()">
+                </div>
+                <div class="searchInput">
+                    <label for="checkOut">Check-out on</label>
+                    <input type="date" id="checkOut">
+                </div>
+                <div class="searchInput">
+                    <label>Adults</label>
+                    <input type="number" id="adults" min="1">
+                </div>
+                <div class="searchInput">
+                    <label>Children</label>
+                    <input type="number" id="children" min="0">
+                </div>
+            </div>
+            <div class="search-btn">
+                <button onclick="searchRooms()" id="search-button">Show available rooms</button>
+            </div>
         </div>
-        <div class="searchInput">
-            <label>Adults</label>
-            <input type="number" id="adults" min="1">
-        </div>
-        <div class="searchInput">
-            <label>Children</label>
-            <input type="number" id="children" min="0">
+        
+
+        
+        <div>
+            <div id="searchOutput"></div>
         </div>
     </div>
-    <div class="container">
-        <button onclick="searchRooms()" id="search-button">Show available rooms</button>
-    </div>
-
-    <div class="container">
-        <div id="searchOutput"></div>
-    </div>
-
-
-    
-
-
-    
-    <div class="container-2">
-        <div id="bookRoom"></div>
-    </div>
-
- 
     
 </body>
 </html>
