@@ -56,12 +56,12 @@
 .intro:hover {
     background-color: rgba(26, 24, 27, 0.8);
     border-color: sandybrown;
-    border-width: 2px;
+    /* border-width: 2px; */
 }
 
-.intro:hover h2 {
+/* .intro:hover h2 {
     font-size: 2rem;
-}
+} */
 
 
 

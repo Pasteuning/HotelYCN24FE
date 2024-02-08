@@ -110,7 +110,11 @@ async function searchRooms() {
         if (rooms.length === 0) {
             document.getElementById("searchOutput").innerHTML = `<p>No available rooms found. Please change your search query</p>`; 
         } else {
-            let roomshtml = `<h2>${hotelName}</h2><h2>Rooms available</h2>`;
+            let roomshtml = `
+            <div class="hotel-name">
+                <h2>${hotelName}</h2>
+                <h2>Rooms available</h2>
+            </div>`;
 
             for (let i=0; i<rooms.length; i++) {
                 // RoomType in kleine letters zetten
