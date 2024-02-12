@@ -78,28 +78,51 @@ text-decoration: underline; /* Underline the selected item */
     padding-right: 16px;
     height: 72px;
     text-align: center;
+    overflow: visible;
+}
+.cur-res-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.cur-res-wrapper {
+    width: 80%;
+    background-color: rgb(249 250 251);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 24px;
+    padding-right: 24px
+}
 .cur-res-header {
     display: flex;
     justify-content: space-between;
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 12px;
     padding-bottom: 12px;
-    border-top: 1px;
-    border-bottom: 1px;
-    border-top-color: black;
-    border-bottom-color: black;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    background-color: lightgray;
+    height: 24px;
+}
+.visible{
+    display: block;
 }
 
+.hidden {
+    display: none;
+}
 .cur-res-header-item {
     font-size: 24px;
     font-weight: bold;
     width: 192px;
+    justify-content: center;
+    align-items: center;
+}
+.cur-res-header-container {
+    width: 100%;
 }
 
 .cur-res-header-item-container {
@@ -115,17 +138,16 @@ text-decoration: underline; /* Underline the selected item */
     align-items: center;
     justify-content: center;
 }
-
+.subitem:hover {
+    cursor: pointer;
+}
 .cur-res-row {
     display: flex;
     justify-content: space-between;
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 12px;
     padding-bottom: 12px;
-    border-bottom: 1px;
-    border-bottom-color: black;
-    border-bottom-style: solid;
     height: 24px;
 }
 
@@ -161,6 +183,9 @@ text-decoration: underline; /* Underline the selected item */
 
 #row-container {
     height: 245px;
+    width: 100%;
+    background-color: white;
+    border-radius: 24px;
 }
 
 .total-res-container {
