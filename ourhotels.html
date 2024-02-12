@@ -11,33 +11,47 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <a href="index.html"><button>Home</button></a>
-            <a href="#"><button>Our Hotels</button></a>
-            <a href="booking.html"><button>Booking</button></a>
-            <a href="about_us.html"><button>About Us</button></a>
-            <a href=""><button>Contact</button></a>
-            <a href=""><button>Account</button></a>
-        </div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light justify-content-center" id="nav-top">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="index.html"><img src="https://yc2401fotos.blob.core.windows.net/upload/Papaya_logo_1.png" alt="Papaya" width="100" height="80">
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="index.html" id="Logo" >Papaya Palms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ourhotels.html">Our Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="booking.html">Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about_us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+        </ul>
+    </nav>
 
-        <div class="intro-wrapper">
-            <img src="./resources/images/Papaya-Palms-Resorts.jpg" alt="Papaya-Palms-Resorts" id="hotelChainImg">
-            <div class="intro">
-                <h3>Welcome to</h3>
-                    <h2>Papaya Palms Resorts</h2>
-                    <p>where luxury meets tranquility in the heart of paradise! 
-                        Nestled amidst breathtaking landscapes and surrounded by the soothing whispers of palm trees, 
-                        our exclusive hotel chain invites you to experience the epitome of hospitality and relaxation.
-                    </p>
-            </div>
+    <div class="d-flex justify-content-center align-items-center" id="hero">
+        <div class="text-white">
+          <h1 class="mb-3">Our Hotels</h1>
+          <h6 class="mb-3">Escape from the chaos and find your own extravagant get-away </h6>
         </div>
+      </div>
+
 
         <div class="chooseHotel">
-            <p>Find your perfect stay</p>
-            <div class="hotelSelector">
-                <select id="hotelDropdown"></select>
-                <button onclick="changeHotel()" id="explore-btn">Explore</button>
+            <p class="mb-4 fw-bold fs-3 ">Find your perfect stay</p>
+            <div class="hotelSelector container col-md-2">
+                <select class="form-select" aria-label="Default select example" id="hotelDropdown">
+                  </select>
+                <button onclick="changeHotel()" id="explore-btn" class="btn btn-success">Explore</button>
             </div>
         </div>
 
@@ -92,5 +106,51 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top" id="footer">
+          <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <p class="text-muted">© 2024</p>
+          </div>
+      
+          <div class="col mb-3">
+      
+          </div>
+      
+          <div class="col mb-3">
+            <h5>Info</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About Us</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Terms & Conditions</a></li>
+            </ul>
+          </div>
+      
+          <div class="col mb-3">
+            <h5>Socials</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Facebook</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Twitter</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Instagram</a></li>
+            </ul>
+          </div>
+      
+          <div class="col mb-3">
+            <h5>Subscribe to our newsletter</h5>
+            <ul class="nav flex-column">
+              <form action="/action_page.php">
+                <div class="mb-3 mt-3">
+                  <label for="email" class="form-label">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </ul>
+          </div>
+        </footer>
+      </div>
 </body>
 </html>

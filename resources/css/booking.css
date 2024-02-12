@@ -1,29 +1,29 @@
-/*Header*/
-.header {
+:root{
+    --primary:#041421;
+    --secondary:#06313e;
+    --tertiary:#4c7273;
+    --background:#86b9b0;
+    --sec-background:#d0d6d6;
+}
+
+
+/*navbar*/
+
+.nav-item{
     display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.header button {
-    font-size: 1.5rem;;
-    border-style: none;
-    background-color: transparent;
+    flex-direction: column;
+    margin-left: 20px;
 }
 
 
-#title {
-    border: 1px solid black;
-    text-align: center;
-    padding: 15px;
-
+#nav-top a{
+    color: #ffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 1rem;
 }
 
 
-h2 {
-     text-align: center;  
-}
 
 /* Search rooms */
 .search-container {
@@ -61,43 +61,58 @@ label {
     text-align: center;
     padding: 20px; 
 }
+/*hero*/
 
-
-/* Search Results*/
-.hotel-name h2 {
-    margin: 15px;
-}
-
-.room {
-    border: 1px solid black;
-    width: 80%;
-    margin: 50px auto;
-    padding: 50px;
-    display: flex;
-}
-
-.facilities {
-    width: 50%;
-}
-
-.reserve {
-    display: flex;
-    justify-content: center;
-}
-
-.reserve-btn {
-    margin: 50px;
-}
-
-#price {
-    margin: 50px;
-}
-
-.images {
-    width: 50%;
-    height: 300px;
-    background-color: rgb(244, 219, 219);
-    margin: 20px;
+#hero{
+    background-image:
+                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+                url('https://yc2401fotos.blob.core.windows.net/upload/hotels/Hotel_9_Pic_2.jpg');
+    background-repeat: no-repeat;
+    height: 900px;
 }
 
 
+.text-white{
+    text-align: center;
+}
+
+
+
+
+
+/*search*/
+
+#search{
+    background-color: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(5px);
+    padding: 3rem 0;
+    border-radius: 2rem;
+    border:none;
+}
+
+.searchInput{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d0d6d6;
+}
+
+.searchInput input{
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    margin: 0.5rem 0;
+}
+
+.searchInput select{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    margin: 0.5rem 0;
+}
+
+
+/*search output*/
+#room{
+    display:grid;
+
+}
