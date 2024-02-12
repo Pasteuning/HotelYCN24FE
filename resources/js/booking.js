@@ -121,27 +121,24 @@ async function searchRooms() {
                 const roomType = rooms[i].roomType.charAt(0) + rooms[i].roomType.slice(1).toLowerCase();
 
                 roomshtml +=`
-                <div class="room">
-                    <div class="facilities">
-                        <h2>Facilities</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                        </p>
-                        <div>
-                            <p>${roomType} room</p>
-                            <p>${rooms[i].noBeds} beds</p>
-                            <p>Facility 3</p>
-                            <p>Facility 4</p>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <div class="images"></div>
                         </div>
-                        <div class="reserve">
-                            <div id="price">€${rooms[i].price}</div>
-                            <button class="reserve-btn">Book</button>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <h5 class="card-title">${roomType} room</h5>
+                            <h6 class="card-title">${rooms[i].noBeds} beds</h6>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, nulla?</p>
+                            <div class="reserve">
+                                <div id="price">€${rooms[i].price}</div>
+                                <button class="reserve-btn btn btn-primary">Book</button>
+                            </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
-                    <div class="images"></div>
-                </div>
                 `
                 document.getElementById("searchOutput").innerHTML = roomshtml; 
             }

@@ -6,97 +6,205 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="resources/css/home.css">
     <script src="./resources/js/home.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Home</title>
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar_content">
-            <a href="#">Home</a>
-            <a href="ourhotels.html">Our Hotels</a>
-            <a href="booking.html">Booking</a>
-            <a href="about_us.html">About Us</a>
-            <a href="">Contact</a>
-            <a href="">Account</a>
-        </div>
+  
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light justify-content-center" id="nav-bottom">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <label for="hotelDropdown">Where to (required)</label>
+          <select id="hotelDropdown"></select>
+      </li>
+      <li class="nav-item">
+        <label for="checkIn">Check-in</label>
+        <input type="date" id="checkIn" onchange="setMinCheckOutDate()">
+      </li>
+      <li class="nav-item">
+        <label for="checkOut">Check-out</label>
+        <input type="date" id="checkOut">
+      </li>
+      <li class="nav-item">
+        <label>Adults</label>
+        <input type="number" id="adults" min="1">
+      </li>
+      <li class="nav-item">
+        <label>Children</label>
+        <input type="number" id="children" min="0">
+      </li>
+      <li class="nav-item">
+        <label for="roomTypeDropdown">Type of room</label>
+            <select id="roomTypeDropdown">
+                <option value="0">Single</option>
+                <option value="1">Double</option>
+                <option value="2">Family</option></select>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-success" onclick="searchRooms()" id="search-button">Check Availability</button>
+      </li>
+    </ul>
+  </nav>  
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light justify-content-center" id="nav-top">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="index.html"><img src="https://yc2401fotos.blob.core.windows.net/upload/Papaya_logo_1.png" alt="Papaya" width="100" height="80">
+        </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="index.html" id="Logo" >Papaya Palms</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="ourhotels.html">Our Hotels</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="booking.html">Booking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about_us.html">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Account</a>
+      </li>
+    </ul>
+  </nav>  
+  <div class="d-flex justify-content-center align-items-center" id="hero">
+    <div class="text-white">
+      <h1 class="mb-3">Papaya Palm Resorts</h1>
+      <h4 class="mb-3">Luxury Wellness resort</h4>
+      <a class="btn btn-outline-light btn-lg" href="booking.html" role="button">See Rooms</a>
     </div>
-    <div class="reservation">
-        
-        <div class="container">
-            <div class="searchInput">
-                <label for="hotelDropdown">Where to (required)</label>
-                <select id="hotelDropdown"></select>
+  </div>
+  <div class="container-fluid" id="history" >
+    <div class="container" >
+      <div class="card" id="history-card">
+        <div class="row">
+          <div class="col-md-8">
+            <img class="rounded img-fluid" src="https://yc2401fotos.blob.core.windows.net/upload/Hotel_Old_1.jpg" alt="">
+          </div>
+          <div class="col-md-4">
+            <div class="card-body">
+              <h1>Our History</h1>
+              <p>Built in 1892, Papaya Palm Resorts stands as a testament to Victorian opulence and charm. Originally conceived as a retreat for affluent travelers, its ornate façade and luxurious interiors soon became a symbol of prestige. Throughout its storied history, the hotel has hosted illustrious guests, from dignitaries to Hollywood celebrities, each leaving their mark on its rich tapestry of memories. </p>
+              <a href="about_us.html">
+              <button class="btn btn-outline-light btn-lg">Read More</button>
+              </a>
             </div>
-            <div class="searchInput">
-                <label for="checkIn">Check-in</label>
-                <input type="date" id="checkIn" onchange="setMinCheckOutDate()">
-            </div>
-            <div class="searchInput">
-                <label for="checkOut">Check-out</label>
-                <input type="date" id="checkOut">
-            </div>
-            <div class="searchInput">
-                <label>Adults</label>
-                <input type="number" id="adults" min="1">
-            </div>
-            <div class="searchInput">
-                <label>Children</label>
-                <input type="number" id="children" min="0">
-            </div>
-            <div class="searchInput">
-                <label for="roomTypeDropdown">Type of room</label>
-                <select id="roomTypeDropdown">
-                    <option value="0">Single</option>
-                    <option value="1">Double</option>
-                    <option value="2">Family</option></select>
-            </div>
+          </div>
         </div>
-        <div class="container">
-            <button onclick="searchRooms()" id="search-button">Check Availability</button>
-        </div>
+      </div>
     </div>
-    <div class="hero_container">
-        <div class="hero_text">
-            <h2>Welcome to</h2>
-            <h1>Papaya Palms Resorts</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae libero minus ab. Laboriosam unde, quibusdam nisi maxime, nesciunt ea, a excepturi at alias molestias neque.</p>
-        </div>
-    </div>
-    <div class="history_container">
-        <img src="https://yc2401fotos.blob.core.windows.net/upload/Spa_1.png" alt="">
-        <div class="history_text">
-            <h1>Our History</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nulla omnis impedit sit repellat aut alias amet fuga suscipit voluptatum.</p>
-            <a href="">
-                <button>Read More</button>
-            </a>
-        </div>
-    </div>
-    <div class="explore_container">
-        <h1>Explore Our Hotels</h1>
-        <div class="explore_carousel">
+  </div>
 
+
+  <div class="container-fluid" id="Explore">
+    <h1 class="text-center text-white pt-5">Explore Our Hotels</h1>
+ 
+
+    <div class="300-px-wide" id="carouselbox">
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+        <div class="carousel-inner" id="carousel">
+          <div class="carousel-item active">
+            <img src="https://yc2401fotos.blob.core.windows.net/upload/hotels/Hotel_5_Pic_1.jpg" class="d-block w-100" alt="..." style="filter:brightness(70%);">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Eindhoven Inn</h5>
+              <p>Where style meets excellence </p>
+              <button class="btn btn-outline-light btn-md">Explore</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://yc2401fotos.blob.core.windows.net/upload/hotels/Hotel_7_Pic_1.jpg" class="d-block w-100" alt="..." style="filter:brightness(70%);">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Rotterdam Hotel</h5>
+              <p>Sleep amongst wild nature </p>
+              <button class="btn btn-outline-light btn-md">Explore</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://yc2401fotos.blob.core.windows.net/upload/hotels/Hotel_3_Pic_1.jpg" class="d-block w-100" alt="..." style="filter:brightness(70%);">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Utrecht Plaza</h5>
+              <p>Escape chaos and embrace silence</p>
+              <button class="btn btn-outline-light btn-md">Explore</button>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
-    <footer class="footer">
-        <div class="footer_content">
-            <div class="legal">
-                <a href="">About Us</a>
-                <a href="">Contact</a>
-                <a href="">Terms & Conditions</a>
+  </div>
+  
+
+  <div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+      <div class="col mb-3">
+        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <p class="text-muted">© 2024</p>
+      </div>
+  
+      <div class="col mb-3">
+  
+      </div>
+  
+      <div class="col mb-3">
+        <h5>Info</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About Us</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Terms & Conditions</a></li>
+        </ul>
+      </div>
+  
+      <div class="col mb-3">
+        <h5>Socials</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Facebook</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Twitter</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Instagram</a></li>
+        </ul>
+      </div>
+  
+      <div class="col mb-3">
+        <h5>Subscribe to our newsletter</h5>
+        <ul class="nav flex-column">
+          <form action="/action_page.php">
+            <div class="mb-3 mt-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
             </div>
-            <div class="socials">
-                <a href=""><i class="fa-brands fa-facebook"></i>Papaya Palms</a>
-                <a href=""><i class="fa-brands fa-x"></i>@PapayaPalms</a>
-                <a href=""><i class="fa-brands fa-instagram"></i>@PapayaPalms</a>
-            </div>
-            <div class="newsletter">
-                <p>Subscribe to our newsletter</p>
-                <div class="email"></div>
-                    <input type="text" placeholder="Email Address">
-                    <button>Ok</button>
-                </div>
-            </div>
-        </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </ul>
+      </div>
     </footer>
+  </div>
+    
+  
+
+
+
+
+
 </body>
 </html>

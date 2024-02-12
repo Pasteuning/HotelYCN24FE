@@ -1,3 +1,14 @@
+
+:root{
+    --primary:#041421;
+    --secondary:#06313e;
+    --tertiary:#4c7273;
+    --background:#86b9b0;
+    --sec-background:#d0d6d6;
+}
+
+
+
 /*Header*/
 .header {
     display: flex;
@@ -12,72 +23,52 @@
     background-color: transparent;
 }
 
+/*navbar*/
 
-
-/*Intro*/
-#hotelChainImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
+.nav-item{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
 }
 
-.intro-wrapper {
-    position: relative;
-    width: 100%;
-    height: 1080px;
-} 
 
-.intro h3 {
-    font-size: 1.3rem;;
-    margin-top: 16px;
-    margin-bottom: 10px;
+#nav-top a{
+    color: #ffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 1rem;
 }
 
-.intro h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+
+/*hero*/
+
+#hero{
+    background-image:
+                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+                url('https://yc2401fotos.blob.core.windows.net/upload/hotels/Hotel_3_Pic_2.jpg');
+    background-repeat: no-repeat;
+    height: 800px;
 }
 
-.intro {
-    position: relative;
-    border: 1px solid black;
-    color: white;
-    background-color: rgba(51, 42, 52, 0.8);
-    width: 30%; 
-    padding: 20px;
-    top: 0%; 
-    left: 20%; 
-    transform: translate(-30%, -320%);
-    
-}
 
-.intro:hover {
-    background-color: rgba(26, 24, 27, 0.8);
-    border-color: sandybrown;
-    /* border-width: 2px; */
+.text-white{
+    text-align: center;
 }
-
-/* .intro:hover h2 {
-    font-size: 2rem;
-} */
 
 
 
 /*Find Your Perfect Stay*/
 .chooseHotel {
-    border: 1px solid black;
     padding: 25px;
+    background-color:var(--tertiary);
     
 }
 
 .chooseHotel p {
     text-align: center;
-    font-size: 1.5rem;;
-    font-weight: bold;
-    margin-top: 0px;
+    color: #ffff;
 }
+
 
 .hotelSelector {
     display: flex;
@@ -85,7 +76,7 @@
 }
 
 .hotelSelector button {
-    margin-left: 50px;
+    margin-left: 1rem;
 }
 
 

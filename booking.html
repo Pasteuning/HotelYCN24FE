@@ -9,20 +9,36 @@
     <script src="./resources/js/booking.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="index.html"><button>Home</button></a>
-            <a href="ourhotels.html"><button>Our Hotels</button></a>
-            <a href="#"><button>Booking</button></a>
-            <a href="about_us.html"><button>About Us</button></a>
-            <a href=""><button>Contact</button></a>
-            <a href=""><button>Account</button></a>
-        </div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light justify-content-center" id="nav-top">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="index.html"><img src="https://yc2401fotos.blob.core.windows.net/upload/Papaya_logo_1.png" alt="Papaya" width="100" height="80">
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="index.html" id="Logo" >Papaya Palms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ourhotels.html">Our Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="booking.html">Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about_us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+        </ul>
+    </nav>
+    <div class="d-flex justify-content-center align-items-center" id="hero">
         
-        <div id="title">
-            <h1>Check availibility</h1>
-        </div>
-        <div class="search-container">
+        <div class="search-container container" id="search">
+            <h2 class="text-white">Choose your stay</h2>
             <div class="input-container">
                 <div class="searchInput">
                     <label for="hotelDropdown">Choose a hotel</label>
@@ -46,16 +62,14 @@
                 </div>
             </div>
             <div class="search-btn">
-                <button onclick="searchRooms()" id="search-button">Show available rooms</button>
+                <button onclick="searchRooms()" id="search-button" class="btn btn-primary p-3 fw-bold">Show available rooms</button>
             </div>
-        </div>
-        
-
-        
-        <div>
-            <div id="searchOutput"></div>
-        </div>
     </div>
-    
+</div>
+<div class="container justify-content-center" id="room">
+  <div id="searchOutput"></div>
+</div>
+
+
 </body>
 </html>
