@@ -9,7 +9,7 @@ function getAllHotels() {
     let output = document.getElementById("allhotels");
     output.innerHTML = "";
 
-    fetch("http://127.0.0.1:8080/allhotels")
+    fetch(url+"/allhotels")
         .then((res) => res.json())
         .then((hotels) => {
             console.log(hotels)
@@ -116,7 +116,7 @@ function getEditor(hotel) {
 }
 
 function editHotel(hotelId) {
-    fetch("http://localhost:8080/hotel/" + hotelId)
+    fetch(url+"/hotel/" + hotelId)
         .then((res) => res.json())
         .then((hotel) => {
             let form = getEditor(hotel);
@@ -134,7 +134,7 @@ function slaHotelOp(hotelId) {
         country: document.getElementById("country").value,
     };
 
-    fetch("http://127.0.0.1:8080/edithotel/" + hotelId, {
+    fetch(url+"/edithotel/" + hotelId, {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
@@ -165,7 +165,7 @@ async function createHotel() {
         country: document.getElementById("country").value,
     };
     //console.log(hotel);
-    fetch("http://127.0.0.1:8080/createhotel", {
+    fetch(url+"/createhotel", {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
@@ -188,7 +188,7 @@ async function createHotel() {
 
 function deleteHotel(id, hotelnaam) {
     if (confirm("Zeker weten dat je hotel " + hotelnaam + " wilt verwijderen?")) {
-        fetch("http://localhost:8080/deletehotel/" + id).then((response) => {
+        fetch(url+"/deletehotel/" + id).then((response) => {
             getAllHotels();
         });
     }

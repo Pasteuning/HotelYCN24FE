@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function getAllHotels(){
-    return fetch("http://127.0.0.1:8080/allhotels")
+    return fetch(url+"/allhotels")
     .then(hotels => hotels.json());
 }
 
@@ -31,7 +31,7 @@ async function displayRooms() {
     //methode werkt op onchange, dus wordt aangeroepen als de hotel dropdown waarde verandert.
     const hotelId = document.getElementById("hotelDropdown").value;
 
-    await fetch("http://127.0.0.1:8080/hotel/" + hotelId + "/rooms")
+    await fetch(url+"/hotel/" + hotelId + "/rooms")
     .then(rooms => rooms.json())
     .then(rooms => {
         let roomshtml = "";
@@ -76,7 +76,7 @@ async function createRoom() {
         "price": document.getElementById("price").value
     }
     
-    await fetch("http://127.0.0.1:8080/createroom?hotelId=" + hotelId, {
+    await fetch(url+"/createroom?hotelId=" + hotelId, {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
@@ -97,7 +97,7 @@ async function createRoom() {
 
 
 async function editRoom(roomId, hotelId) {
-    await fetch("http://localhost:8080/room/" + roomId)
+    await fetch(url+"/room/" + roomId)
     .then(res => res.json())
     .then(room => {
         let form = `
@@ -134,7 +134,7 @@ function submitRoomForm(roomId) {
         "price": document.getElementById("editPrice").value
     };
     let edditedHotelId = document.getElementById("editHotelDropdown").value;
-    fetch("http://localhost:8080/editroom/" + roomId + "?hotelId=" + edditedHotelId, {
+    fetch(url+"/editroom/" + roomId + "?hotelId=" + edditedHotelId, {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
@@ -149,7 +149,7 @@ function submitRoomForm(roomId) {
 
 function deleteRoom(roomId) {
     if (confirm("Are you sure you want to delete room: " + roomId)) {
-        fetch("http://localhost:8080/deleteroom/" + roomId)
+        fetch(url+"/deleteroom/" + roomId)
         .then(response => {
             displayRooms();
         });

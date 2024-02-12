@@ -4,7 +4,7 @@ function submitFormRoom(roomId){
         "noBeds": document.getElementById("editNoBeds").value,
         "price": document.getElementById("editPrice").value,
     }
-    fetch("http://127.0.0.1:8080/editroom/" + roomId, {
+    fetch(url+"/editroom/" + roomId, {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
@@ -19,7 +19,7 @@ function createRoom(){
         "noBeds": document.getElementById("no_beds").value,
         "price": document.getElementById("price")
     }
-    fetch("http://127.0.0.1:8080/createroom", {
+    fetch(url+"/createroom", {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
@@ -33,6 +33,6 @@ function createRoom(){
 
 function deleteRoom(roomId) {
     console.log(roomId)
-    fetch("http://localhost:8080/deleteroom/" + roomId);
+    fetch(url+"/deleteroom/" + roomId);
     location.reload();
 }

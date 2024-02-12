@@ -68,7 +68,7 @@ function setMinCheckOutDate(){
 
 
 function getAllHotels() {
-    return fetch("http://127.0.0.1:8080/allhotels")
+    return fetch(url+"/allhotels")
     .then(hotels => hotels.json());
 }
 
@@ -94,7 +94,7 @@ async function changeHotel() {
     const selectedText = selectedOption.text;
 
     // Locatie van hotel vinden
-    const res = await fetch("http://127.0.0.1:8080/hotel/" + selectedOption.value)
+    const res = await fetch(url+"/hotel/" + selectedOption.value)
     const hotel = await res.json();
 
     // Geselecteerde hotel in titel zetten

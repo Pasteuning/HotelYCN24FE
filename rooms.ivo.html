@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rooms (Ivo)</title>
     <link rel="stylesheet" href="style.ivo.css">
+    <script src="/resources/js/general.js"></script>
     <script>
         function getRooms() {
-            fetch("http://127.0.0.1:8080/allrooms")
+            fetch(url+"/allrooms")
                 .then((res) => res.json())
                 .then(rooms => {
                     //console.log(rooms)
@@ -97,7 +98,7 @@
         }
 
         function editRoom(id) {
-            fetch("http://localhost:8080/room/" + id)
+            fetch(url+"/room/" + id)
                 .then((res) => res.json())
                 .then((room) => {
                     let form = getEditor(room);
@@ -113,7 +114,7 @@
                 idhotel: document.getElementById("idhotel").value,
             };
             console.log("Dit gaan we opslaan", editedRoom)
-            fetch("http://127.0.0.1:8080/editroom/" + id, {
+            fetch(url+"/editroom/" + id, {
                 method: "POST", // or 'PUT'
                 headers: {
                     "Content-Type": "application/json",
@@ -131,7 +132,7 @@
 
         function deleteRoom(id) {
             if (confirm("Zeker weten dat je ROOM " + id + " wilt verwijderen?")) {
-                fetch("http://localhost:8080/deleteroom/" + id).then((response) => {
+                fetch(url+"/deleteroom/" + id).then((response) => {
                     getRooms();
                 });
             }

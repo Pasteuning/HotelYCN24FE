@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function getAllUsers(){
-    fetch("http://127.0.0.1:8080/allusers")
+    fetch(url+"/allusers")
     .then(res => res.json())
     .then (users => {
         let userhtml = ""
@@ -43,7 +43,7 @@ async function createUser(){
         "email": document.getElementById("email").value,     
         "phoneNumber": document.getElementById("phoneNumber").value      
     }
-    await fetch("http://127.0.0.1:8080/createuser", {
+    await fetch(url+"/createuser", {
     method: "POST", // or 'PUT'
     headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ async function createUser(){
 }
 
 function editUser(userId) {
-    fetch("http://localhost:8080/user/" + userId)
+    fetch(url+"/user/" + userId)
     .then(res => res.json())
     .then(user => {
         let form = `
@@ -100,7 +100,7 @@ async function submitForm(userId) {
         "phoneNumber": document.getElementById("editPhoneNumber").value
     }
 
-    await fetch("http://127.0.0.1:8080/edituser/" + userId, {
+    await fetch(url+"/edituser/" + userId, {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
@@ -114,7 +114,7 @@ async function submitForm(userId) {
 
 async function deleteUser(id, firstName, lastName) {
     if (confirm("Are you sure you want to delete user: " + id + " "+ firstName + " " + lastName)) {
-        await fetch("http://localhost:8080/deleteuser/" + id);
+        await fetch(url+"/deleteuser/" + id);
         getAllUsers();
     }
 }
