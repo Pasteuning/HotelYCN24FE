@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function getAllHotels() {
-    return fetch("http://127.0.0.1:8080/allhotels")
+    return fetch(url+"/allhotels")
     .then(hotels => hotels.json());
 }
 

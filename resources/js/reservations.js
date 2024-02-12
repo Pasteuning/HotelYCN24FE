@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 
 function getAllHotels() {
-    return fetch("http://127.0.0.1:8080/allhotels")
+    return fetch(url+"/allhotels")
     .then(hotels => hotels.json());
 }
 
@@ -43,7 +43,7 @@ async function displayRooms() {
     //methode werkt op onchange, dus wordt aangeroepen als de hotel dropdown waarde verandert.
     const hotelId = document.getElementById("hotelDropdown2").value;
 
-    await fetch("http://127.0.0.1:8080/hotel/" + hotelId + "/rooms")
+    await fetch(url+"/hotel/" + hotelId + "/rooms")
     .then(rooms => rooms.json())
     .then(rooms => {
         let roomshtml = `
@@ -67,7 +67,7 @@ async function displayRooms() {
 async function getAllReservations(){
     let sort = document.getElementById("sort").value;
 
-    await fetch("http://127.0.0.1:8080/allreservations?sort=" + sort)
+    await fetch(url+"/allreservations?sort=" + sort)
     .then(res => res.json())
     .then (reservations => {
         let reservationshtml = `
@@ -137,7 +137,7 @@ async function createReservation() {
     } else if (resDTO.reservation.children == null) {
         alert("Please fill in the number of children")
     } else {
-        const res = await fetch("http://127.0.0.1:8080/createreservation", {
+        const res = await fetch(url+"/createreservation", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -161,7 +161,7 @@ async function assignRoom(reservation) {
     let roomId = document.getElementById("roomDropdown").value;
     if (roomId !== null) {
         console.log(reservation.id);
-        await fetch("http://127.0.0.1:8080/reservations/assignroom?reservationId=" + reservation.id + "&roomId=" + roomId, {
+        await fetch(url+"/reservations/assignroom?reservationId=" + reservation.id + "&roomId=" + roomId, {
         method: "POST", 
         headers: {
             "Content-Type": "application/json",
@@ -173,7 +173,7 @@ async function assignRoom(reservation) {
 async function assignUser(reservation) {
     let userId = document.getElementById("user").value;
     if (userId !== null) {
-        await fetch("http://127.0.0.1:8080/reservations/assignuser?reservationId=" + reservation.id + "&userId=" + userId, {
+        await fetch(url+"/reservations/assignuser?reservationId=" + reservation.id + "&userId=" + userId, {
         method: "POST", 
         headers: {
             "Content-Type": "application/json",
@@ -183,13 +183,13 @@ async function assignUser(reservation) {
 
 
 async function deleteReservation(reservationId) {
-    await fetch("http://localhost:8080/deletereservation/" + reservationId);
+    await fetch(url+"/deletereservation/" + reservationId);
     alert("Reservation successfully deleted");
     getAllReservations();
 }
 
 async function editReservation(reservationId, hotelId) {
-    await fetch("http://localhost:8080/editreservation/" + reservationId)
+    await fetch(url+"/editreservation/" + reservationId)
     .then(res => res.json())
     .then(reservation => {
         let form = `

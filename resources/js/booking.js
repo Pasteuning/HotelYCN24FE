@@ -42,7 +42,7 @@ function setMinCheckOutDate(){
 }
 
 function getAllHotels(){
-    return fetch("http://127.0.0.1:8080/allhotels")
+    return fetch(url+"/allhotels")
     .then(hotels => hotels.json());
 }
 
@@ -95,8 +95,8 @@ async function searchRooms() {
 
     try {
         // URL van de endpoint in back-end
-        const url = `http://127.0.0.1:8080/searchrooms/${hotelId}?cid=${ciDate}&cod=${coDate}&adults=${adults}&children=${children}`;
-        const response = await fetch(url)
+        const urllocal = url+`/searchrooms/${hotelId}?cid=${ciDate}&cod=${coDate}&adults=${adults}&children=${children}`;
+        const response = await fetch(urllocal)
 
         // Checkt of hij een response kan krijgen van de URL
         if (!response.ok) {
