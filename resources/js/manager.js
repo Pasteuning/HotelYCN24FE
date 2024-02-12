@@ -239,6 +239,7 @@ async function renderRows(pageNumber, refetch=false){
     });
     document.getElementById('row-container').innerHTML = htmlString;
   }
+  
   else {
     console.log(paginationState.pageState);
   }
