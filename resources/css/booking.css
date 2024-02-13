@@ -112,7 +112,16 @@ label {
 
 
 /*search output*/
-#room{
+#room-order{
     display:grid;
-
 }
+
+.reserve{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#room .images{
+    height: fit-content;
+}
+

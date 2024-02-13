@@ -5,64 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <script src="/resources/js/general.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./resources/css/booking_confirm.css">
     
   
 </head>
 <body>
-    <header>
-        <div class="header">
-            <a href="index.html"><button>Home</button></a>
-            <a href="ourhotels.html"><button>Our Hotels</button></a>
-            <a href="booking.html"><button>Booking</button></a>
-            <a href="about_us.html"><button>About Us</button></a>
-            <a href=""><button>Contact</button></a>
-            <a href=""><button>Account</button></a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light justify-content-center" id="nav-top">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="index.html"><img src="https://yc2401fotos.blob.core.windows.net/upload/Papaya_logo_1.png" alt="Papaya" width="100" height="80">
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="index.html" id="Logo" >Papaya Palms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ourhotels.html">Our Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="booking.html">Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about_us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+        </ul>
+      </nav>  
+
+
+    <div class="container-fluid" id="content">
+        
+        <div id="bookRoom" class="container"></div>
+
+        <div class="bookRoom userDetails container" id="user-details">
+            <h2>Your Personal Info</h2>
+            <div class="row">
+                <div class="col-6">
+                    <label>First name: </label>
+                    <input type="text" id="firstName" required>
+                    <label>Last name:</label>
+                    <input type="text" id="lastName">
+                    <label>Date of birth: </label>
+                    <input type="date" id="dateOfBirth">
+                    <label>Email: </label>
+                    <input type="text" id="email">
+                    <label>Phone number: </label>
+                    <input type="text" id="phoneNumber">
+                </div>
+                <div class="col-6">
+                    <label>Street: </label>
+                    <input type="text" id="street">
+                    <label>House number: </label>
+                    <input type="text" id="houseNumber">
+                    <label>Zip code: </label>
+                    <input type="text" id="zipCode">
+                    <label>City: </label>
+                    <input type="text" id="city">
+                    <label>Country: </label>
+                    <input type="text" id="country">
+                </div>
+                <div class="col-6 mt-3">
+                    <label class="form-check-label">Create account: </label>
+                    <input type="checkbox" id="createAccount" class="form-check-input">
+                        <div id="passwordField" style="display:none;">
+                            <label>Password: </label>
+                            <input type="password" id="password">
+                        </div>
+                </div>
+                <div class="col-6 mt-3">
+                    <div class="form-check mb-2">
+                        <label class="form-check-label" for="dev-donate">
+                            Donate €100,- to the developers
+                        </label>
+                        <input class="form-check-input" type="checkbox" id="dev-donate">
+                    </div>
+                    <button id="book-btn" class="btn btn-primary" onclick="bookRoom()">Confirm Booking</button>
+                </div>
+            </div>
         </div>
-    </header>
-
-
-
-    <div class="container-2"></div>
-        <div id="bookRoom">
-            
-        </div>
-    </div>
-
-    
-
-    
-    <div class="bookRoom userDetails">
-        <h2>Fill in Personal Info</h2>
-        <label>First name: </label>
-        <input type="text" id="firstName" required><br>
-        <label>Last name:</label>
-        <input type="text" id="lastName"><br>
-        <label>Date of birth: </label>
-        <input type="date" id="dateOfBirth"><br>
-        <label>Street: </label>
-        <input type="text" id="street"><br>
-        <label>House number: </label>
-        <input type="text" id="houseNumber"><br>
-        <label>Zip code: </label>
-        <input type="text" id="zipCode"><br>
-        <label>City: </label>
-        <input type="text" id="city"><br>
-        <label>Country: </label>
-        <input type="text" id="country"><br>
-        <label>Email: </label>
-        <input type="text" id="email"><br>
-        <label>Phone number: </label>
-        <input type="text" id="phoneNumber"><br>
-        <label>Create account: </label>
-        <input type="checkbox" id="createAccount"><br>
-        <div id="passwordField" style="display:none;">
-            <label>Password: </label>
-            <input type="password" id="password">
-        </div>
-        <label>Donate €100,- to the developers</label>
-        <input type="checkbox"><br>
-        <button id="book-btn" onclick="bookRoom()">Confirm Booking</button>
     </div>
 
     <script>
@@ -83,8 +113,10 @@
             <p>Adults: ${query.adults}</p>
             <p>Children: ${query.children}</p>
             <p>Price: € ${query.price}</p>
-            <button onclick="window.open('outside_activities.html', '_blank')">View Outside Activities</button>
-            <button onclick="window.location.href = 'booking.html'">Back to Hotel Room Overview</button>
+            <div class="buttons">
+                <button class="btn btn-light btn-md" onclick="window.location.href = 'booking.html'">Back to Rooms</button>
+                <button class="btn btn-outline-light btn-md" onclick="window.open('outside_activities.html', '_blank')">View Outside Activities</button>
+            </div>
         `;
         
         // Add this function to your existing JavaScript code

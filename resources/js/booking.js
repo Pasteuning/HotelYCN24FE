@@ -111,9 +111,9 @@ async function searchRooms() {
             document.getElementById("searchOutput").innerHTML = `<p>No available rooms found. Please change your search query</p>`; 
         } else {
             let roomshtml = `
-            <div class="hotel-name">
-                <h2>${hotelName}</h2>
-                <h2>Rooms available</h2>
+            <div class="hotel-name pt-5">
+                <p class="fs-1">${hotelName}</p>
+                <h4>Rooms available</h4>
             </div>`;
 
             for (let i=0; i<rooms.length; i++) {
@@ -121,18 +121,20 @@ async function searchRooms() {
                 const roomType = rooms[i].roomType.charAt(0) + rooms[i].roomType.slice(1).toLowerCase();
 
                 roomshtml +=`
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 540px;" id="room">
                         <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <div class="images"></div>
+                        <div class="col-md-6">
+                            <div class="images">
+                                <img src="https://yc2401fotos.blob.core.windows.net/upload/Room_${roomType}_1.png" alt="" class="img-fluid rounded">
+                            </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <div class="card-body">
                             <h5 class="card-title">${roomType} room</h5>
                             <h6 class="card-title">${rooms[i].noBeds} beds</h6>
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, nulla?</p>
                             <div class="reserve">
-                                <div id="price">€${rooms[i].price}</div>
+                                <div class="fw-bold" id="price">€${rooms[i].price}</div>
                                 <button class="reserve-btn btn btn-primary">Book</button>
                             </div>
                             </div>
