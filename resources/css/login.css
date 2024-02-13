@@ -1,0 +1,32 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: rgb(249 250 251);
+    padding: 24px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-item {
+    margin-bottom: 24px;
+    border: none;
+    width: 300px;
+    height: 24px;
+}
+
+.login-btn {
+    width: 150px;
+    background-color: #198754;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 300;
+    border: none;
+    border-radius: 6px;
+}
