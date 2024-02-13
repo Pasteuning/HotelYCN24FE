@@ -17,6 +17,8 @@
     margin-top: 8rem;
     color: #fff;
     height: fit-content;
+    justify-content: center;
+    align-items: center;
 }
 
 #bookRoom button{
@@ -35,16 +37,20 @@
 }
 
 #user-details{
-    display: flex;
-    flex-direction: column;
     max-width: 600px;
     background-color: rgba(255, 255, 255, 0.09);
     backdrop-filter: blur(10px);
-    padding: 3rem 0;
+    padding: 2rem 0;
     border-radius: 2rem;
     border:none;
-    margin-top: 1rem;
+    margin-top: 6rem;
     color: #fff;
+    margin-bottom: 6rem;
+}
+
+#dateOfBirth{
+    padding: 4px;
+    width: 180px;
 }
 /*body*/
 
@@ -71,93 +77,16 @@ body{
 
 
 
-
-
-
-/* rodi*/
-
-.container {
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-h2 {
-    text-align: center;
-}
-
-.searchInput {
-    margin: 5px;
-    align-items: center;
-}
-
-#adults {
-    width: 40px;
-}
-
-#children {
-    width: 40px;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#search-button {
-    align-items: center;
-}
-
-.room {
-    border: 1px solid black;
-    width: 80%;
-    margin: 50px;
-    padding: 50px;
-    display: inline-flex;
-}
-
-.facilities {
-    width: 50%;
-}
-
-.reserve {
-    display: flex;
-    justify-content: center;
-}
-
-.reserve-btn {
-    margin: 50px;
-}
-
-#price {
-    margin: 50px;
-}
-
-.images {
-    width: 50%;
-    height: 300px;
-    background-color: rgb(244, 219, 219);
-    margin: 20px;
-}
-
 label {
     display: inline-block;
-    width: 150px; 
+    width: 180px; 
     text-align: left; 
     margin: 10px;
 }
 
-.container-2 {
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
+input{
+    border: 1px solid #fff;
+    border-radius: 0.3rem;
 }
 
 
-.userDetails,
-.roomDetails {
-    border: 1px solid black;  
-    padding: 20px;
-}
