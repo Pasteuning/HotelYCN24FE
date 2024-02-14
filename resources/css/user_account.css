@@ -1,0 +1,8 @@
+#reservations {
+    height: 400px;
+    overflow: scroll;
+}
+
+#reservation {
+    border: 1px solid black;
+}
