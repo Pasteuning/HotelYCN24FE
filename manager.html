@@ -29,33 +29,14 @@
 
     <div class="main-body" id="main-body">
         <div id="res-body">
-
-        
-            <div class="new-res-container">
-                <div class="new-res-wrapper">
-                    <button class="new-res-btn" onclick="nieweReservering(this)">
-                        Nieuwe Reservering
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-        
-                    <select id="sort" onchange="setFilterState()">
-                        <option value="hotelId">Hotel id</option>
-                        <option value="hotelName">Hotel name</option>
-                        <option value="roomId">Room id</option>
-                        <option value="reservationId">Reservation id</option>
-                        <option value="ciDate">Check-in date</option>
-                        <option value="coDate" selected="selected">Check-out date</option>
-                        <option value="adults">Adults</option>
-                        <option value="children">Children</option>
-                        <option value="surcharge">Surcharge</option>
-                        <option value="status">Status</option>
-                        <option value="userId">User id</option>
-                        <option value="firstName">First name</option>
-                        <option value="lastName">Last name</option>
-                    </select>
+            <div class="search-usr-container">
+                <div class="search-usr-wrapper">
+                <form id="search-bar" class="search-form" onsubmit="handleSubmit(event)">
+                  <input type="text" placeholder="Zoek in reserveringen..." id="search-user-input">
+                  <button type="submit" class="search-btn">Zoek Reservering</button>
+                </form>
                 </div>
-            
-            </div>
+              </div>
             <div class="cur-res-container">
                 <div class="cur-res-wrapper">
                     <div class="cur-res-header-container">
@@ -88,9 +69,22 @@
                     </div>
                 </div>
             </div>
+            <div class="new-res-container">
+                <div class="new-res-wrapper">
+                    <button class="new-res-btn" onclick="nieweReservering(this)">
+                        Nieuwe Reservering
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+        
+                    <select id="sort" onchange="setFilterState()">
+                       
+                    </select>
+                </div>
+            
+            </div>
         </div>
         
-        <div id="inv-body" class="hidden">Test</div>
+        
     </div>
     <script src="./resources/js/manager.js"></script>
 </body>
