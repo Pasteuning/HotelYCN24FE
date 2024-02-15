@@ -10,23 +10,25 @@ function handleSubmit(event) {
     const data = { email: email, password: password };
     
     // Make a POST request to your backend
-    fetch("http://127.0.0.1:8080/login", { // Replace 'YOUR_BACKEND_ENDPOINT' with your actual backend URL
+    fetch("http://127.0.0.1:8080/login", {
         method: 'POST', // Specify the method
         headers: {
             'Content-Type': 'application/json', // Specify the content type
         },
         body: JSON.stringify(data), // Convert the JavaScript object to a JSON string
     })
-    .then(response => response.json()) // Parse the JSON response
-    .then(data => {
-        // Here you can handle the response from your backend
-        // For example, redirect if login is successful
-        if (data === 'SUCCESS') { // Assume your backend sends { success: true } for correct credentials
-            window.location.href = "manager.html";
+    .then(response => {
+        if (response.ok) {
+            // Successful response, redirect based on the returned URL
+            return response.text();
         } else {
-            // Alert the user if the password is incorrect or login failed
-            alert("Incorrect password, please try again.");
+            // Handle non-OK responses (e.g., show an error message)
+            throw new Error('Login failed');
         }
+    })
+    .then(redirectUrl => {
+        // Redirect to the URL returned by the server
+        window.location.href = redirectUrl + ".html";
     })
     .catch((error) => {
         console.error('Error:', error);

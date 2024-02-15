@@ -1,11 +1,33 @@
 //Startup script:
 document.addEventListener('DOMContentLoaded', function () {
-    // Naam inladen
-    getUser(1).then(u => { 
-        document.getElementById("user-name").textContent += u.firstName + " " + u.lastName
+
+    // Make a GET request to retrieve the SessionDTO from the backend
+    fetch(url + "/get-sessiondto")
+    .then(response => response.json())
+    .then(sessionDTO => {
+        // Use the sessionDTO as needed
+        console.log(sessionDTO);
+
+        // Continue with your logic here
+        getUser(sessionDTO.userId).then(u => {
+            document.getElementById("user-name").textContent += u.firstName + " " + u.lastName
+        });
+        getReservations(sessionDTO.userId, "reservations", "future");
+        getReservations(sessionDTO.userId, "past-reservations", "past");
     })
-    getReservations(1, "reservations", "future");
-    getReservations(1, "past-reservations", "past")
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle any errors that occurred during the fetch
+    });
+
+    
+    // // Naam inladen
+    // getUser(sessionDTO.userId).then(u => { 
+    //     document.getElementById("user-name").textContent += u.firstName + " " + u.lastName
+    // })
+    // getReservations(sessionDTO.userId, "reservations", "future");
+    // getReservations(sessionDTO.userId, "past-reservations", "past")
+    
 
 });
 
