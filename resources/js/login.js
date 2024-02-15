@@ -1,7 +1,4 @@
-function handleSubmit(event) {
-    // Prevent the form from submitting normally
-    event.preventDefault();
-    
+function login() {
     // Get the email and password values
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('pw-input').value;
@@ -17,18 +14,22 @@ function handleSubmit(event) {
         },
         body: JSON.stringify(data), // Convert the JavaScript object to a JSON string
     })
-    .then(response => {
-        if (response.ok) {
-            // Successful response, redirect based on the returned URL
-            return response.text();
+    .then(response => response.json())
+    .then(account => {
+        if (!account) {
+            // Niet gevonden
         } else {
-            // Handle non-OK responses (e.g., show an error message)
-            throw new Error('Login failed');
+            localStorage.setItem('TOKEN', account.token);
+
+            if (account.role == 'STAFF') {
+                // Redirect to the URL returned by the server
+                window.location.href = "manager.html";
+            } else if (account.role == 'GUEST') {
+                window.location.href = "user_account.html";
+            } else if (account.role == 'OWNER') {
+                window.location.href = "manager.html";
+            }
         }
-    })
-    .then(redirectUrl => {
-        // Redirect to the URL returned by the server
-        window.location.href = redirectUrl + ".html";
     })
     .catch((error) => {
         console.error('Error:', error);
