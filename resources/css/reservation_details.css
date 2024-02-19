@@ -2,6 +2,12 @@
     display: flex;
 }
 
+.totalPrice {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #9bc4cf;
+}
+
 
 /*bookroom*/
 
@@ -29,6 +35,8 @@
     display: flex;
     flex-direction: row;
 }
+
+
 
 /*user details*/
 
