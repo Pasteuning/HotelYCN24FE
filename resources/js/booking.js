@@ -156,6 +156,7 @@ async function searchRooms() {
     } catch (error) {
         console.error("An error occurred:", error.message);    
     }
+    autoScroll()
 }
 
 
@@ -167,10 +168,11 @@ function reserveRoom(query, room) {
         queryParams.append(key, query[key]);
     }
     // Append room type and price to the query parameters
+    queryParams.append('roomId', room.id);
     queryParams.append('roomType', room.roomType);
     queryParams.append('price', room.price);
     // Redirect to book.html with query parameters
-    window.location.href = "booking_confirm.html?" + queryParams.toString();
+    window.location.href = "reservation_details.html?" + queryParams.toString();
 }
 
 
@@ -187,13 +189,14 @@ function togglePasswordField() {
 }
 
 
-function goBack() {
-    document.getElementById("bookRoom").innerHTML = "";
-    searchRooms();
-}
+function autoScroll() {
+    // Adjust the value (e.g., 500) to control the amount of scrolling
+    const scrollAmount = 800;
 
-
-function bookRoom() {
-    alert("Dus jij wil een kamer boeken?");
-    alert("Mag niet!");
+    // Scroll the page by scrollAmount pixels
+    window.scrollBy({
+        top: scrollAmount,
+        left: 0,
+        behavior: 'smooth' // You can use 'auto' instead of 'smooth' for instant scrolling
+    });
 }

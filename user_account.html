@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="./resources/css/user_account.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./resources/js/user_account.js"></script>
+    <script src="./resources/js/general.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="background-image"></div>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light justify-content-center" id="nav-top">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="index.html"><img src="https://yc2401fotos.blob.core.windows.net/upload/Papaya_logo_1.png" alt="Papaya" width="100" height="80">
+        </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="index.html" id="Logo" >Papaya Palms</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="ourhotels.html">Our Hotels</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="booking.html">Booking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about_us.html">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="logout-btn" href="#" onclick="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+    
+    
+
+  <div class="container mt-5 ">
+      <h2 id="user-name" class="text-center text-white">Welcome </h2>
+      
+      <div class="container" id="edit-user" style="display: none;">
+        <h2 class="text-center mb-4">Be yourself...</h2>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <label class="mt-2">First name: </label>
+                <input type="text" id="firstName" maxlength="80">
+                <label class="mt-2">Last name:</label>
+                <input type="text" id="lastName" maxlength="80">
+                <label class="mt-2">Date of birth: </label>
+                <input type="date" id="dateOfBirth">
+                <label class="mt-2">Email: </label>
+                <input type="text" id="email" maxlength="80">
+                <label class="mt-2">Phone number: </label>
+                <input type="text" id="phoneNumber" maxlength="50">
+            </div>
+            <div class="col-4 ms-5">
+                <label class="mt-2">Street: </label>
+                <input type="text" id="street" maxlength="50">
+                <label class="mt-2">House number: </label>
+                <input type="text" id="houseNumber" maxlength="30">
+                <label class="mt-2">Zip code: </label>
+                <input type="text" id="zipCode" maxlength="30">
+                <label class="mt-2">City: </label>
+                <input type="text" id="city" maxlength="200">
+                <label class="mt-2">Country: </label>
+                <input type="text" id="country" maxlength="80">
+            </div>
+            <hr class="col-10 mt-4">
+
+            <div class="text-center" id="pw-btn">
+              <button class="btn btn-success btn-sm" onclick="showPasswordField()">Change password</button>
+            </div>
+            <div class="row justify-content-center" style="display: none;" id="pw-field">
+              <div class="col-4">
+                  <label class="text-center">New password: </label>
+                  <input type="password" id="password" maxlength="100">
+              </div>
+              <div class="col-4 mt-4 ms-5">
+                  <button class="btn btn-secondary btn-sm" onclick="hidePasswordField()">Cancel</button>
+                  <button class="btn btn-success btn-sm" onclick="savePassword()">Save password</button>
+              </div>
+            </div>
+            
+            <hr class="col-10 mt-4">
+            <div class="text-center mt-2">
+                <input type="checkbox" id="terms-checkbox">
+                <label>I am not an alien</label>
+            </div>
+              
+          </div>
+        <div id="invalid-create" class="invalid-message text-center"></div>
+        <div class="col-12 mt-3 text-center">
+            <button id="back-btn" class="btn btn-secondary" type="button" onclick="cancelEdit()">Cancel</button>
+            <button id="save-changes-btn" class="btn btn-primary" disabled type="button" onclick="submitForm()">Save changes</button>
+        </div>
+    </div>
+    
+
+
+
+      <div id="loyaltyPoints" class="text-center text-white fs-4 m-3 main-elements">Your loyalty points: </div>
+      <div id="reservation-wrapper" class="mt-5 mb-5 main-elements">
+          <div class=" mt-3 mb-3">
+            <button id="future-btn" class="btn btn-outline-success text-white" type="button" onclick="displayReservations('future', isChecked())">Current reservations</button>
+            <button id="past-btn" class="btn btn-outline-success text-white" type="button" onclick="displayReservations('past', isChecked())">Past reservations</button>
+            <input type="checkbox" id="hide-cancelled" value="isChecked" onchange="displayReservations('current', isChecked())"> 
+            <span class="text-white">Hide cancelled reservations</span>
+          </div>
+          <div id="reservation-list" class="text-white"></div>
+      </div>
+      
+
+
+
+      <div class="text-center main-elements container">
+        <div class="row mb-5">
+          <div class="col mb-2">
+              <button class="btn btn-success" type="button" onclick="editUser()">Edit personal information</button>
+          </div>
+          <div class="col mb-2">
+            <button class="btn btn-success" type="button" onclick="displayReviews()">View your reviews</button>
+          </div>  
+          <div class="col mb-2">
+            <button class="btn btn-secondary" type="button" onclick="deleteAccount()">Delete account</button>
+          </div>  
+        </div>
+    </div>
+            
+  </div>
+</body>
+</html>
