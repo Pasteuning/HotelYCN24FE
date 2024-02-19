@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   #chat-popup {
     width: 27vw;
+    max-width: 500px;
     height: 78vh;
     max-height: 78vh;
     transition: all 0.3s;
