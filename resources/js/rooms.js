@@ -80,6 +80,7 @@ async function createRoom() {
         method: "POST", // or 'PUT'
         headers: {
             "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem('TOKEN')
         },
         body: JSON.stringify(room),
     })
