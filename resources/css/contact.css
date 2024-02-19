@@ -1,0 +1,28 @@
+/*navbar*/
+.nav-item{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+#nav-top a{
+    color: #ffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/*background*/
+.background-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), 
+    url('https://yc2401fotos.blob.core.windows.net/upload/hotels/Hotel_6_Pic_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
