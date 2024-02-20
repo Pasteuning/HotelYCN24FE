@@ -44,70 +44,55 @@
           <h1 class="mb-3">Our Hotels</h1>
           <h6 class="mb-3">Escape from the chaos and find your own extravagant get-away </h6>
         </div>
+        <div class="hotelSelector container col-md-2">
+          <select class="form-select" style="width: auto;" aria-label="Default select example" id="hotelDropdown">
+          </select>
+          <button onclick="changeHotel()" id="explore-btn" class="btn btn-outline-light">Explore</button>
       </div>
-
-
-        <div class="chooseHotel">
-            <p class="mb-4 fw-bold fs-3 ">Find your perfect stay</p>
-            <div class="hotelSelector container col-md-2">
-                <select class="form-select" aria-label="Default select example" id="hotelDropdown">
-                  </select>
-                <button onclick="changeHotel()" id="explore-btn" class="btn btn-success">Explore</button>
+    </div>    
+    
+    <div id="carouselBackground">
+      <div class="row">
+        <div class="col-md-6">
+            <div id="hotel-title">
+                <h2><span id="hotelValue"> situated at </h2>
+            </div>
+            <div id="hotel-description">
+              <p id="hotelDescription"></p>
+              <a href="booking.html">
+                <button class="btn btn-outline-light">Book Now</button> 
+              </a>
             </div>
         </div>
-
-        
-        
-            <div class="selectedHotel">
-                <div id="hotel-title">
-                    <h2><span id="hotelValue"> situated at </h2>
-                </div>
-            <div id="carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://yc2401fotos.blob.core.windows.net/upload/Hotel_Front_1.png" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src="https://yc2401fotos.blob.core.windows.net/upload/Spa_1.png" alt="Second slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" id="prevBtn">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next" id="nextBtn">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+            <div id="hotelSlider" class="col-md-6">
             </div>
-        </div>
-        
-
-
-
-        <div class="search-container">
-            <div class="searchInput">
-                <label for="checkIn">Check-in on</label>
-                <input type="date" id="checkIn" onchange="setMinCheckOutDate()">
-            </div>
-            <div class="searchInput">
-                <label for="checkOut">Check-out on</label>
-                <input type="date" id="checkOut">
-            </div>
-            <div class="searchInput">
-                <label>Adults</label>
-                <input type="number" id="adults" min="1">
-            </div>
-            <div class="searchInput">
-                <label>Children</label>
-                <input type="number" id="children" min="0">
-            </div>
-            <div class="searchInput">
-                <button onclick="searchRooms()" id="search-button">Show available rooms</button>
-            </div>
-        </div>
+      </div>
     </div>
 
+
+
+    
+    <div class="search-container">
+        <div class="searchInput">
+            <label for="checkIn">Check-in on</label>
+            <input type="date" id="checkIn" onchange="setMinCheckOutDate()">
+        </div>
+        <div class="searchInput">
+            <label for="checkOut">Check-out on</label>
+            <input type="date" id="checkOut">
+        </div>
+        <div class="searchInput">
+            <label>Adults</label>
+            <input type="number" id="adults" min="1">
+        </div>
+        <div class="searchInput">
+            <label>Children</label>
+            <input type="number" id="children" min="0">
+        </div>
+        <div class="searchInput">
+            <button onclick="searchRooms()" id="search-button">Show available rooms</button>
+        </div>
+    </div>
     <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top" id="footer">
           <div class="col mb-3">

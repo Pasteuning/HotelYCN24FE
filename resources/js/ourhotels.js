@@ -5,28 +5,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         populateDropdown(hotels, "hotelDropdown", 1)
         document.getElementById("explore-btn").click()
     });
-    // Carousel inladen
-    loadCarousel();
     // Minimum en maximum checkin en checkout dateum inladen
     loadMinMaxDates();
 });
-
-
-function loadCarousel() {
-        // Initialize the Bootstrap Carousel with interval set to false
-        let myCarousel = new bootstrap.Carousel(document.getElementById('carousel'), {
-            interval: false // Disable automatic sliding
-        });
-    
-        // Add event listeners for manual navigation
-        document.getElementById('prevBtn').addEventListener('click', function () {
-            myCarousel.prev();
-        });
-    
-        document.getElementById('nextBtn').addEventListener('click', function () {
-            myCarousel.next();
-        });
-}
 
 
 function loadMinMaxDates() {
@@ -100,4 +81,43 @@ async function changeHotel() {
     // Geselecteerde hotel in titel zetten
     const hotelValue = document.getElementById('hotelValue');
     hotelValue.textContent = selectedText + " situated at " + hotel.city;
+
+    // Geselecteerde hotel description erbij
+    const hotelDescription = document.getElementById('hotelDescription');
+    hotelDescription.textContent = hotel.description;
+
+    // Carousel van hotel invoegen
+    let carouselhtml =`
+    <div id="carouselHotel" class="carousel slide ">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://yc2401fotos.blob.core.windows.net/upload/hotels/Hotel_${hotel.id}_Pic_2.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="https://yc2401fotos.blob.core.windows.net/upload/Room_Double_1.png" class="d-block w-100" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Double Room</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://yc2401fotos.blob.core.windows.net/upload/Room_Family_1.png" class="d-block w-100" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Family Room</h5>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHotel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselHotel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+    `
+    document.getElementById("hotelSlider").innerHTML = carouselhtml;
 }
+
