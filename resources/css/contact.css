@@ -1,3 +1,11 @@
+:root{
+    --primary:#041421;
+    --secondary:#06313e;
+    --tertiary:#4c7273;
+    --background:#86b9b0;
+    --sec-background:#d0d6d6;
+}
+
 /*navbar*/
 .nav-item{
     display: flex;
@@ -25,4 +33,77 @@
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+#hero{
+    height: 600px;
+}
+
+#hero1{
+    height: 200px;
+}
+
+.text-white{
+    text-align: center;
+}
+
+
+#search {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Align items horizontally at the center */
+    background-color: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(5px);
+    padding: 1rem 0;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 2rem;
+    border: none;
+}
+
+.input-container {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.input-container input,
+.input-container textarea {
+    width: 100%;
+    max-width: 800px; /* Adjust the max-width as needed */
+    padding: 0.5rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+}
+
+.input-container textarea {
+    resize: vertical;
+}
+
+#contact-form button {
+    margin-top: 1rem;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 90%; /* Add width property to match input fields */
+    max-width: 400px; /* Add max-width to prevent stretching */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+#contact-form button:hover {
+    background-color: var(--secondary);
+}
+
+/* Center the button */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
