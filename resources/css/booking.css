@@ -116,6 +116,13 @@ label {
     display:grid;
 }
 
+#searchOutput p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
 .reserve{
     display: flex;
     flex-direction: row;

@@ -132,7 +132,7 @@ async function searchRooms() {
                             <div class="card-body">
                             <h5 class="card-title">${roomType} room</h5>
                             <h6 class="card-title">${rooms[i].noBeds} beds</h6>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, nulla?</p>
+                            <p class="card-text fs-6">${rooms[i].description}</p>
                             <div class="reserve">
                                 <div class="fw-bold" id="price">€${rooms[i].price}</div>
                                 <button class="reserve-btn btn btn-primary">Book</button>
