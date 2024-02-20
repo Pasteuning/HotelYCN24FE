@@ -61,11 +61,12 @@
     background-color: #041421;
     color: #ffff;
     padding-bottom: 5rem;
+    text-align: center;
 }
 
 #owner img{
     height: 300px;
-    margin-left: 8rem;
+
 }
 
 
