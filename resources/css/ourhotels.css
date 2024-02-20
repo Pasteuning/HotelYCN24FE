@@ -8,7 +8,6 @@
 }
 
 
-
 /*Header*/
 .header {
     display: flex;
@@ -48,6 +47,8 @@
                 url('https://yc2401fotos.blob.core.windows.net/upload/hotels/Hotel_3_Pic_2.jpg');
     background-repeat: no-repeat;
     height: 800px;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -80,23 +81,6 @@
 }
 
 
-/*Photo Carousel*/
-#hotel-title {
-    border: 1px solid black;
-    text-align: center;
-
-    padding: 20px;
-}
-
-#hotel-title h2 {
-    font-size: 2.3rem;
-}
-
-#carousel img {
-    height: 600px;
-    object-fit: cover;
-}
-
 
 /*Search rooms*/
 .search-container {
@@ -128,3 +112,27 @@
 #search-button {
     align-items: center;
 }
+
+/*carousel hotel*/
+
+#carouselHotel{
+    margin: auto;
+    width: 500px;
+}
+
+#carouselHotel img{
+    height: 500px;
+}
+
+#carouselBackground{
+    background-color: #041421;
+    padding: 5rem;
+    color: #fff;
+    text-align: center;
+}
+
+#hotel-description{
+    width: 70%;
+    margin: auto;
+}
+

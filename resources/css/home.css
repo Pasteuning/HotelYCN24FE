@@ -83,7 +83,7 @@ body{
 }
 
 #history-card{
-    background-color: var(--background);
+    background-color: var(--secondary);
     color: #fff;
     border: 2px solid var(--secondary);
 }
