@@ -77,15 +77,15 @@ body{
 /*history*/
 
 #history{
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-    background-color: var(--secondary);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--primary);
 }
 
 #history-card{
-    background-color: var(--secondary);
+    background-color: var(--primary);
     color: #fff;
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--primary);
 }
 
 /*carousel*/
