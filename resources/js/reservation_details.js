@@ -41,7 +41,7 @@ function getBookingDetails(){
         <input class="mt-3" type="text" id="specialRequest" style="display: none" maxlength="500">
         <div class="buttons mt-4">
             <button class="btn btn-light btn-md" onclick="window.location.href = 'booking.html'">Back to Rooms</button>
-            <button class="btn btn-outline-light btn-md" onclick="window.open('outside_activities.html', '_blank')">View Outside Activities</button>
+            <button class="btn btn-outline-light btn-md" onclick="window.open('https://ycn24bezienswaardigheden.azurewebsites.net/', '_blank')">View Outside Activities</button>
         </div>
     `;
 }
