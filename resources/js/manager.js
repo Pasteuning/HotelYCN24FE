@@ -1,4 +1,4 @@
-let endpointAddress = "http://127.0.0.1:8080"
+let endpointAddress = "http://108.142.25.246:8080"
 
 function selectItem(selectedDiv) {
     const items = document.querySelectorAll('.nav-item');
@@ -205,7 +205,7 @@ function endpointUrl(){
     return `${endpointAddress}/allusers`
   }
   if (paginationState.pageState === "inv") {
-    return `https://yc2401bigdata.azurewebsites.net/locationrating/all`
+    return `http://yc2401bigdata.azurewebsites.net/locationrating/all`
   }
 }
 
